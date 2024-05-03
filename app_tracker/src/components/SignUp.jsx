@@ -1,94 +1,60 @@
-import React, { useState } from 'react';
-import { signUp } from '../../../server/utilities/users-service';
+import { Component } from 'react';
+import { signUp } from '../../utilities/users-service';
 
-const SignUpForm = () => {
-  const [formData, setFormData] = useState({
+export default class SignUpForm extends Component {
+
+  state = {
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    confirm: '',
+    error: ''
   };
 
-  const handleSubmit = async (e) => {
-    try{
-        e.preventDefault();
-        if (formData.password !== formData.confirmPassword) {
-        alert("Passwords do not match!");
-        return;
-        }
-        const user = await signUp(formData);
-        console.log(formData);
-        setFormData({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-        });
-    }catch{
 
+  handleSubmit = async (evt) => {
+    // Prevent form from being submitted to the server
+    evt.preventDefault();
+    try {
+      const formData = {...this.state};
+      delete formData.error;
+      delete formData.confirm;
+      const user = await signUp(formData);
+      this.props.setUser(user);
+
+    } catch {
+      // An error occurred 
+      this.setState({ error: 'Sign Up Failed' });
     }
   };
 
+  handleChange = (evt) => {
+    this.setState({
+      [evt.target.name]: evt.target.value,
+      error: ''
+    });
+  };
+
+
+ render() {
+  const disable = this.state.password !== this.state.confirm;
   return (
     <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Confirm Password:
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <button type="submit">Sign Up</button>
-      </form>
+      <div className="form-container">
+        <form autoComplete="off" onSubmit={this.handleSubmit}>
+          <label>Name</label>
+          <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+          <label>Email</label>
+          <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+          <label>Password</label>
+          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+          <label>Confirm</label>
+          <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+          <button type="submit" disabled={disable}>SIGN UP</button>
+        </form>
+      </div>
+      <p className="error-message">&nbsp;{this.state.error}</p>
     </div>
   );
-};
-
-export default SignUpForm;
+}
+}

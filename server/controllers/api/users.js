@@ -4,10 +4,15 @@ const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-    create,
-    login
-  };
+  create,
+  login,
+  checkToken
+};
 
+function checkToken(req, res) {
+  console.log(req.user);
+  res.json(req.exp);
+}
 
   async function login(req, res) {
     try {

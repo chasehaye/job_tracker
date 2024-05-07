@@ -1,18 +1,15 @@
 const Job = require('../../models/job');
 
 module.exports = {
-  index,
-  show
+  create,
 };
 
-async function index(req, res) {
-  const jobs = await Job.find({}).sort('name').populate('category').exec();
-  // re-sort based upon the sortOrder of the categories
-  jobs.sort((a, b) => a.category.sortOrder - b.category.sortOrder);
-  res.json(jobs);
-}
-
-async function show(req, res) {
-  const job = await Job.findById(req.params.id);
-  res.json(job);
+async function create(req, res) {
+  try {
+    req.body.uploaded_by = req.user._id;
+    const newJob = await Job.create(req.body);
+    res.status(201).json(newJob);
+  }catch(err) {
+    res.status(400).json(err);
+  }
 }

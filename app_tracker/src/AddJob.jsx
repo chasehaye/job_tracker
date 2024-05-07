@@ -1,7 +1,10 @@
-const AddJob = () => {
+import NewJobForm from "./components/NewJobForm";
+
+export default function AddJob(){
   return (
-    <div>AddJobPage</div>
+    <main>
+      <h1>add a new job</h1>
+      <NewJobForm />
+    </main>
   )
 }
-
-export default AddJob

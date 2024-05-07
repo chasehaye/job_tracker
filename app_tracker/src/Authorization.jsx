@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import SignUp from "./components/SignUp"
-import Login from './components/Login';
+import SignUp from "./components/SignUpForm"
+import Login from './components/LoginForm';
 
 const Authorization = ({ setUser}) => {
   const [showSignUp, setShowSignUp] = useState(false);

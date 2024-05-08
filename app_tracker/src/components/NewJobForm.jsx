@@ -26,8 +26,7 @@ const NewJobForm = () => {
 
   return (
     <>
-    <div>NewJobForm</div>
-
+    <h1>form:</h1>
     <form onSubmit={handleSubmit}>
 
         <label htmlFor='jobName'>Job:</label>

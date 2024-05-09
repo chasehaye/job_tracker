@@ -11,7 +11,7 @@ export default function EditJobItemForm({job, setJob, setEditFormIsOpen}){
         e.preventDefault()
         const updatedJob = {
             jobName: jobNameRef.current.value,
-            jonTitle: jobTitleRef.current.value,
+            jobTitle: jobTitleRef.current.value,
         }
         try{
             const newJob = await updateJobRequest(job._id, updatedJob)

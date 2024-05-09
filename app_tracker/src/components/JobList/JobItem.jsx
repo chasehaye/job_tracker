@@ -5,8 +5,7 @@ export default function JobItem({job}){
         <>
             <p>
                 <Link to={`/jobs/${job._id}`}>
-                    || {job.jobName} |
-                    | {job._id} ||
+                    || {job.jobName} || {job.jobTitle} || {job.payPerYear} || {job.status} || <p>link toggle</p> <p>contact toggle</p>
                 </Link>
             </p>
         </>

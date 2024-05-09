@@ -11,11 +11,12 @@ const jobSchema = new Schema({
     jobLocation: {
         address: {type: String},
         city: { type: String },
-        state: { type: String}
+        state: { type: String},
+        zip: { type: Number }
     },
     payPerYear: { type: Number, default: 0 },
     companySiteLink: { type: String },
-    compnayApplicationSiteLink: { type: String },
+    companyApplicationSiteLink: { type: String },
     recruitingPlatform: { type: String },
     contactInfoCompany: {
         name: { type: String },
@@ -26,10 +27,6 @@ const jobSchema = new Schema({
         name: { type: String },
         email: { type: String },
         phone: { type: Number }
-    },
-    applicationEditDate: { 
-        type: Date,
-        default: Date.now
     },
     status: {
         type: String,

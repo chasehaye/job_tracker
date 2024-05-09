@@ -5,6 +5,7 @@ module.exports = {
   create,
   detail,
   deleteJob,
+  update,
 };
 
 async function index(req, res){
@@ -28,8 +29,8 @@ async function create(req, res) {
 
 async function detail(req, res) {
   try{
-    const job = await Job.findById(req.params.id)
-    res.status(200).json(job)
+    const job = await Job.findById(req.params.id);
+    res.status(200).json(job);
   }catch(err){
     res.status(400).json(err);
   }
@@ -37,11 +38,20 @@ async function detail(req, res) {
 
 async function deleteJob(req, res) {
   try{
-    await Job.findByIdAndDelete(req.params.id)
+    await Job.findByIdAndDelete(req.params.id);
     res.status(200).json({
       data: 'success'
-    })
+    });
   }catch(err){
     res.status(400).json(err);
+  }
+}
+
+async function update(req, res){
+  try{
+    const updatedJob = await Job.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.status(200).json(updatedJob);
+  }catch(err){
+    res.status(400).json('Bad Request');
   }
 }

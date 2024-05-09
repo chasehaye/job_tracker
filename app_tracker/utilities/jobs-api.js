@@ -10,9 +10,13 @@ export async function createNewJob(jobData) {
 }
 
 export async function getJobRequest(jobId){
-    return sendRequest(`${BASE_URL}/${jobId}`)
+    return sendRequest(`${BASE_URL}/${jobId}`);
 }
 
 export async function deleteJobRequest(jobId){
-    return sendRequest(`${BASE_URL}/${jobId}`, 'DELETE')
+    return sendRequest(`${BASE_URL}/${jobId}`, 'DELETE');
+}
+
+export async function updateJobRequest(jobId, jobData){
+    return sendRequest(`${BASE_URL}/${jobId}`, 'PUT', jobData);
 }

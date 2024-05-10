@@ -28,7 +28,7 @@ export default function JobItemDetail({job, handleDelete, setJob}){
                 <div>{job.companyApplicationSiteLink}</div>
                 <div>{job.recruitingPlatform}</div>
             <p>==================</p>
-                <div>Contatcts:</div>
+                <div>Contacts:</div>
                 <div>
                 <div>{job.contactInfoCompany.name}</div>
                 <div>{job.contactInfoCompany.email}</div>

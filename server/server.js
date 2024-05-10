@@ -12,7 +12,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(require('./config/checkToken'));
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/jobs', require('./routes/api/jobs'))
+app.use('/api/jobs', require('./routes/api/jobs'));
+app.use('/api/tech', require('./routes/api/technologies'));
 
 
 app.get('/*', function(req, res) {

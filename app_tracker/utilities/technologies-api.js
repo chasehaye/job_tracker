@@ -12,3 +12,7 @@ export async function createNewTech(techData){
 export async function getTechRequest(techId){
     return sendRequest(`${BASE_URL}/${techId}`);
 }
+
+export async function deleteTechRequest(techId, techData){
+    return sendRequest(`${BASE_URL}/${techId}`, 'DELETE')
+}

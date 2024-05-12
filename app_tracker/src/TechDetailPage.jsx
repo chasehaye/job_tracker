@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { getTechRequest } from "../utilities/technologies-api";
+import { getTechRequest, deleteTechRequest } from "../utilities/technologies-api";
 import { useEffect, useState } from "react";
 import TechItemDetail from "./components/TechItemDetail/TechItemDetail";
 
@@ -30,12 +30,18 @@ export default function TechDetailPage(){
         if(techId) {
             fetchTech();
         }
-        console.log(tech)
     }, [techId]);
+
+    async function handleDelete(e){
+        const deleteResponse = await deleteTechRequest(tech._id);
+        if(deleteResponse.data === 'success'){
+            navigate('/')
+        }
+    }
 
     return(
         <>
-        <TechItemDetail tech={tech} setTech={setTech}/>
+        <TechItemDetail tech={tech} handleDelete={handleDelete} setTech={setTech}/>
         </>
     )
 }

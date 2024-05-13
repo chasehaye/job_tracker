@@ -73,8 +73,8 @@ const NewJobForm = () => {
         <label htmlFor="jobName">Job: </label>
         <input type="text" id="jobName" ref={jobNameRef}/>
 
-        <label htmlFor="jobName">Title: </label>
-        <input type="text" id="jobName" ref={jobTitleRef}/>
+        <label htmlFor="jobTitle">Title: </label>
+        <input type="text" id="jobTitle" ref={jobTitleRef}/>
 
         <label htmlFor="pay">Pay (per year): </label>
         <input type="number" id="pay" ref={payPerYearRef} />

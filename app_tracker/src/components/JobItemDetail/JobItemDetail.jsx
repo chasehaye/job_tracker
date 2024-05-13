@@ -19,10 +19,14 @@ export default function JobItemDetail({job, handleDelete, setJob}){
             <p>==================</p>
                 <div> {job.jobDescription} </div>
             <p>==================</p>
-                <div>Location:</div>
-                <div>{job.jobLocation.address}</div>
-                <div>{job.jobLocation.city}, {job.jobLocation.state}, {job.jobLocation.zip}</div>
-            <p>==================</p>
+            {job.jobLocation.address && (
+                <>
+                    <div>Location:</div>
+                    <div>{job.jobLocation.address}</div>
+                    <div>{job.jobLocation.city}, {job.jobLocation.state}, {job.jobLocation.zip}</div>
+                    <p>==================</p>
+                </>
+            )}
                 <div>Links:</div>
                 <div>{job.companySiteLink}</div>
                 <div>{job.companyApplicationSiteLink}</div>

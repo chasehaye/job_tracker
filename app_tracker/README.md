@@ -8,6 +8,6 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-1. on add job page add a rediect to the newly generated item
-2. add a link between the created job and the user who created (model link)
-3. create an edit page to rediect to instead of rendering the form on the detail page
+4. add a status update on the detail page
+5. add sort by status algorithiom toggle on the detail page
+6. add mroe sorting options

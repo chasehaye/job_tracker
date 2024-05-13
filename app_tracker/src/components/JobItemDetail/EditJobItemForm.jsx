@@ -1,28 +1,29 @@
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { updateJobRequest } from '../../../utilities/jobs-api';
 
 export default function EditJobItemForm({job, setJob, setEditFormIsOpen}){
-    const navigate = useNavigate();
+
     const jobNameRef = useRef(job.jobName);
     const jobTitleRef = useRef(job.jobTitle);
-    const jobDescriptionRef = useRef('');
-    const jobLocationAddressRef = useRef('');
-    const jobLocationCityRef = useRef('');
-    const jobLocationStateRef = useRef('');
-    const jobLocationZipRef = useRef('');
-    const payPerYearRef = useRef('');
-    const companySiteLinkRef = useRef('');
-    const companyApplicationSiteLinkRef = useRef('');
-    const recruitingPlatformRef = useRef('');
-    const companyNameRef = useRef('');
-    const companyEmailRef = useRef('');
-    const companyPhoneRef = useRef('');
-    const managerNameRef = useRef('');
-    const managerEmailRef = useRef('');
-    const managerPhoneRef = useRef('');
+    const jobDescriptionRef = useRef(job.jobDescription);
+    const jobLocationAddressRef = useRef(job.jobLocation.address);
+    const jobLocationCityRef = useRef(job.jobLocation.city);
+    const jobLocationStateRef = useRef(job.jobLocation.state);
+    const jobLocationZipRef = useRef(job.jobLocation.zip);
+    const payPerYearRef = useRef(job.payPerYear);
+    const companySiteLinkRef = useRef(job.companySiteLink);
+    const companyApplicationSiteLinkRef = useRef(job.companyApplicationSiteLink);
+    const recruitingPlatformRef = useRef(job.recruitingPlatform);
+    const companyNameRef = useRef(job.contactInfoCompany.name);
+    const companyEmailRef = useRef(job.contactInfoCompany.email);
+    const companyPhoneRef = useRef(job.contactInfoCompany.phone);
+    const managerNameRef = useRef(job.contactInfoHiringManager.name);
+    const managerEmailRef = useRef(job.contactInfoHiringManager.email);
+    const managerPhoneRef = useRef(job.contactInfoHiringManager.phone);
 
-    const [error, setError] = useState('')
+    const [status, setStatus] = useState(job.status);
+    const [error, setError] = useState('');
+
     async function handleSubmit(e){
         e.preventDefault()
         const updatedJob = {
@@ -49,7 +50,7 @@ export default function EditJobItemForm({job, setJob, setEditFormIsOpen}){
                 email: managerEmailRef.current.value,
                 phone: managerPhoneRef.current.value
             },
-
+            status: status
         }
         try{
             const newJob = await updateJobRequest(job._id, updatedJob)
@@ -129,9 +130,21 @@ export default function EditJobItemForm({job, setJob, setEditFormIsOpen}){
 
         <br/>
         <br/>
-                <button>Update</button>
 
-            </form>
+        <label htmlFor="status">Status:</label>
+        <select id="status" value={status} onChange={(e) => setStatus(e.target.value)}>
+          <option value="Pending">Pending</option>
+          <option value="Interviewing">Interviewing</option>
+          <option value="Offered">Offered</option>
+          <option value="Accepted">Accepted</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+
+        <br/>
+        <br/>
+        <button>Update</button>
+
+        </form>
             </>
     )
 }

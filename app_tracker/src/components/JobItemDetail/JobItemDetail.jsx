@@ -17,6 +17,8 @@ export default function JobItemDetail({job, handleDelete, setJob}){
                 <div> {job.jobTitle} </div>
                 <div> {job.payPerYear} </div>
             <p>==================</p>
+                <div> {job.status} </div>
+            <p>==================</p>
                 <div> {job.jobDescription} </div>
             <p>==================</p>
             {job.jobLocation.address && (

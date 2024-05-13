@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { createNewJob } from '../../utilities/jobs-api';
+import { createNewJob, getJobRequest } from '../../utilities/jobs-api';
 import { useNavigate } from "react-router-dom";
 
 
@@ -57,7 +57,7 @@ const NewJobForm = () => {
         }
         try {
             const newJobResponse = await createNewJob(newJob);
-            navigate('/jobs');
+            navigate(`/jobs/${newJobResponse._id}`);
         }catch(err) {
             setError(err);
         }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import JobItem from './JobItem';
+import JobItem from './JobItem/JobItem';
+import EditStatus from './JobItem/EditStatus';
 
 export default function JobList({jobs}) {
     const [jobsComponent, setJobsComponent] = useState(null);

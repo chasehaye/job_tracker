@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import EditStatus from "./EditStatus";
 
 export default function JobItem({job}){
     const [showLinks, setShowLinks] = useState(false);
     const [showContacts, setShowContacts] = useState(false);
+    const [showEditStatus, setShowEditStatus] = useState(false);
 
     const toggleLinks = () => {
         setShowLinks((prev) => !prev);
@@ -17,7 +19,10 @@ export default function JobItem({job}){
             setShowLinks(false);
         }
     };
-
+    const editStatus = () => {
+        setShowEditStatus((prev) => !prev);
+    }
+//modify the showEdit status form to render all the menus
     return (
         <>
             <div>
@@ -26,6 +31,12 @@ export default function JobItem({job}){
                 </Link>
             </div>
 
+
+            <div>
+                <button onClick={editStatus}>
+                    {showEditStatus ? "\\\\close\\\\" : "\\\\update status\\\\"}
+                </button>
+            </div>
 
             <div>
                 <button onClick={toggleLinks}>
@@ -61,6 +72,11 @@ export default function JobItem({job}){
                     <p>
                         Hiring Manager: {job.contactInfoHiringManager.name}_{job.contactInfoHiringManager.email}_{job.contactInfoHiringManager.phone}
                     </p>
+                </div>
+            )}
+            {showEditStatus && (
+                <div>
+                    <EditStatus job={job} />
                 </div>
             )}
 

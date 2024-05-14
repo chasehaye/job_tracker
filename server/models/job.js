@@ -30,10 +30,11 @@ const jobSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['Pending', 'Interviewing', 'Offered', 'Accepted', 'Rejected'],
+        enum: ['Pending', 'Interviewing', 'Offered', 'Accepted', 'Rejected', 'Stalled'],
         default: 'Pending',
         required: 'true'
-    }
+    },
+    favorite: { type: Boolean, default: false}
 }, {
   timestamps: true
 });

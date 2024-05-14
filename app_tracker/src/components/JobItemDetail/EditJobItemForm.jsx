@@ -138,6 +138,7 @@ export default function EditJobItemForm({job, setJob, setEditFormIsOpen}){
           <option value="Offered">Offered</option>
           <option value="Accepted">Accepted</option>
           <option value="Rejected">Rejected</option>
+          <option value="Stalled">Stalled</option>
         </select>
 
         <br/>

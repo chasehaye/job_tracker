@@ -11,6 +11,7 @@ import JobDetailPage from './JobDetailPage';
 import AddTechPage from './AddTechPage';
 import TechListPage from './TechListPage';
 import TechDetailPage from './TechDetailPage';
+import LandingPage from './LandingPage';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ return (
         <>
           <Header user={user} setUser={setUser} />
           <Routes>
+            <Route path="/" element={<LandingPage />} />
             <Route path="/jobs/new" element={<AddJobPage />} />
             <Route path="/jobs" element={<JobListPage />} />
             <Route path="/jobs/:jobId" element={<JobDetailPage />} />

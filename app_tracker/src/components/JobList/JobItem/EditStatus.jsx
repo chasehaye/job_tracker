@@ -37,6 +37,7 @@ export default function EditStatus({job}){
                 <option value="Offered">Offered</option>
                 <option value="Accepted">Accepted</option>
                 <option value="Rejected">Rejected</option>
+                <option value="Stalled">Stalled</option>
             </select>
             <button>Submit Change</button>
         </form>

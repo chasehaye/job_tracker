@@ -5,6 +5,7 @@ module.exports = {
     create,
     detail,
     deleteTech,
+    update,
 }
 
 async function index(req, res){
@@ -43,5 +44,14 @@ async function deleteTech(req, res){
         })
     }catch(err){
         res.status(400).json(err);
+    }
+}
+
+async function update(req, res){
+    try{
+        const updatedTech = await Technology.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        res.status(200).json(updatedTech);
+    }catch(err){
+        res.status(400).json('Bad Request');
     }
 }

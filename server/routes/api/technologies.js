@@ -6,5 +6,6 @@ router.get('/', techCtrl.index);
 router.post('/', techCtrl.create);
 router.get('/:id', techCtrl.detail);
 router.delete('/:id', techCtrl.deleteTech);
+router.put('/:id', techCtrl.update);
 
 module.exports = router;

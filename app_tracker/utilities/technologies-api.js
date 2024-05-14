@@ -14,5 +14,9 @@ export async function getTechRequest(techId){
 }
 
 export async function deleteTechRequest(techId, techData){
-    return sendRequest(`${BASE_URL}/${techId}`, 'DELETE')
+    return sendRequest(`${BASE_URL}/${techId}`, 'DELETE');
+}
+
+export async function updateTechRequest(techId, techData){
+    return sendRequest(`${BASE_URL}/${techId}`, 'PUT', techData);
 }

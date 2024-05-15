@@ -21,7 +21,21 @@ const userSchema = new Schema({
     trim: true,
     minLength: 3,
     required: true
-  }
+  },
+  full: {
+    firstName: { type: String },
+    middleName: { type: String },
+    lastName: { type: String }
+  },
+  education: {
+    school: { type: String },
+    level: { type: String }
+  },
+  location: {
+    city: { type: String },
+    state: { type: String }
+  },
+  bio: { type: String }
 }, {
   timestamps: true,
   toJSON: {

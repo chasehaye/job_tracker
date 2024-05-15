@@ -20,3 +20,7 @@ export async function deleteJobRequest(jobId){
 export async function updateJobRequest(jobId, jobData){
     return sendRequest(`${BASE_URL}/${jobId}`, 'PUT', jobData);
 }
+
+export async function getFilteredList(category, value){
+    return sendRequest(`${BASE_URL}/category/${category}/${value}`)
+}

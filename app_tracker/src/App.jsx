@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../utilities/users-service';
 
 import Authorization from './AuthorizationPage';
-import Header from './components/Header';
+import NavBar from './components/NavBar';
 import AddJobPage from './AddJobPage';
 import JobListPage from './JobListPage'
 import JobDetailPage from './JobDetailPage';
@@ -12,6 +12,7 @@ import AddTechPage from './AddTechPage';
 import TechListPage from './TechListPage';
 import TechDetailPage from './TechDetailPage';
 import LandingPage from './LandingPage';
+import ProfilePage from './ProfilePage';
 
 
 const App = () => {
@@ -21,9 +22,10 @@ return (
     <main>
       { user ?
         <>
-          <Header user={user} setUser={setUser} />
+          <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage user={user} />} />
+            <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/jobs/new" element={<AddJobPage />} />
             <Route path="/jobs" element={<JobListPage />} />
             <Route path="/jobs/:jobId" element={<JobDetailPage />} />

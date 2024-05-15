@@ -1,19 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import InterviewingList from './components/FilteredList/InterviewingList';
 
-export default function LandingPage(){
+export default function LandingPage({user}){
+
+
     return(
         <>
             <div>
                 Landing Page
             </div>
             <div>
-                user name and profile
-                (relocate the log out function from the header)
+                <p>===============</p>
+                <div>
+                <Link to="/profile"><span>{user.name}</span></Link>
+                </div>
+                <p>===============</p>
             </div>
             <div>
-                interviewing jobs
+
+
+
+
+
+                <p>===============</p>
+                <InterviewingList />
+                <p>===============</p>
+
+
+
+
+
+
             </div>
             <div>
+                <p>===============</p>
                 recently added jobs
             </div>
             <div>

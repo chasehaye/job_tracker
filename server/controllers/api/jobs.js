@@ -6,6 +6,7 @@ module.exports = {
   detail,
   deleteJob,
   update,
+  filteredList
 };
 
 async function index(req, res){
@@ -53,5 +54,19 @@ async function update(req, res){
     res.status(200).json(updatedJob);
   }catch(err){
     res.status(400).json('Bad Request');
+  }
+}
+
+async function filteredList(req, res) {
+  try {
+      const { category, value } = req.params;
+      const filter = {};
+      if (category && value) {
+        filter[category] = value;
+      }
+      const jobs = await Job.find(filter);
+      res.status(200).json(jobs);
+  } catch (err) {
+      res.status(400).json(err);
   }
 }

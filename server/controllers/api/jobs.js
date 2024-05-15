@@ -64,7 +64,7 @@ async function filteredList(req, res) {
       if (category && value) {
         filter[category] = value;
       }
-      const jobs = await Job.find(filter);
+      const jobs = await Job.find(filter).sort({updatedAt: -1}).limit(5);
       res.status(200).json(jobs);
   } catch (err) {
       res.status(400).json(err);

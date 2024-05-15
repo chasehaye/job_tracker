@@ -27,7 +27,7 @@ export default function JobItem({job}){
         <>
             <div>
                 <Link to={`/jobs/${job._id}`}>
-                    <div>|| {job.jobName} || {job.jobTitle} || {job.payPerYear} || {job.status} || </div>
+                    <div>|| {job.jobName} || {job.jobTitle} || {job.payPerYear} || {job.status} || {job.updatedAt}</div>
                 </Link>
             </div>
 

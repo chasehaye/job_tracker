@@ -8,6 +8,3 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-4. add a status update on the detail page
-5. add sort by status algorithiom toggle on the detail page
-6. add mroe sorting options

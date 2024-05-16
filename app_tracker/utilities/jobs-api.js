@@ -21,6 +21,6 @@ export async function updateJobRequest(jobId, jobData){
     return sendRequest(`${BASE_URL}/${jobId}`, 'PUT', jobData);
 }
 
-export async function getFilteredList(category, value){
-    return sendRequest(`${BASE_URL}/category/${category}/${value}`)
+export async function getFilteredList(category, value, order){
+    return sendRequest(`${BASE_URL}/category/${category}/${value}/${order}`)
 }

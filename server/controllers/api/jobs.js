@@ -59,13 +59,27 @@ async function update(req, res){
 
 async function filteredList(req, res) {
   try {
-      const { category, value } = req.params;
+      const { category, value, order } = req.params;
       const filter = {};
-      if (category && value) {
-        filter[category] = value;
+      let orderValue = null;
+      // order parameter conversion
+      if (order == 'descending'){
+        orderValue = -1;
       }
-      const jobs = await Job.find(filter).sort({updatedAt: -1}).limit(5);
-      res.status(200).json(jobs);
+      if (order == 'ascending'){
+        orderValue = 1;
+      }
+
+      if ( category == 'null' && value =='null'){
+        const jobs = await Job.find().sort({updatedAt: orderValue}).limit(3);
+        res.status(200).json(jobs);
+      } else {
+        if (category && value) {
+          filter[category] = value;
+        }
+        const jobs = await Job.find(filter).sort({updatedAt: orderValue}).limit(3);
+        res.status(200).json(jobs);
+      }
   } catch (err) {
       res.status(400).json(err);
   }

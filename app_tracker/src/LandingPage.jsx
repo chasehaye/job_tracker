@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import InterviewingList from './components/FilteredList/InterviewingList';
+import OldestModdedList from './components/FilteredList/OldestModdedList';
+import RecentlyAddedList from './components/FilteredList/RecentlyAddedList';
 
 export default function LandingPage({user}){
 
@@ -18,24 +20,13 @@ export default function LandingPage({user}){
                 <p>===============</p>
             </div>
             <div>
-
-
-
-
-
-                <p>===============</p>
                 <InterviewingList />
-                <p>===============</p>
+                <OldestModdedList />
+                <RecentlyAddedList />
 
 
 
 
-
-
-            </div>
-            <div>
-                <p>===============</p>
-                recently added jobs
             </div>
             <div>
                 personal user tech stack

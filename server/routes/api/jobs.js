@@ -7,6 +7,6 @@ router.post('/', jobsCtrl.create);
 router.get('/:id', jobsCtrl.detail);
 router.delete('/:id', jobsCtrl.deleteJob);
 router.put('/:id', jobsCtrl.update);
-router.get('/category/:category/:value', jobsCtrl.filteredList);
+router.get('/category/:category/:value/:order', jobsCtrl.filteredList);
 
 module.exports = router;

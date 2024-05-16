@@ -2,34 +2,34 @@ import  { useEffect, useState } from 'react';
 import { getFilteredList } from '../../../utilities/jobs-api';
 import JobList from '../JobList/JobList';
 
-const InterviewingList = () => {
-    const [interviewingJobs, setInterviewingJobs] = useState([]);
+const RecentlyAddedList = () => {
+    const [recentJobs, setRecentJobs] = useState([]);
 
     useEffect(() => {
-        async function fetchInterviewingJobs() {
+        async function fetchRecentJobs() {
             try {
-                const category = 'status';
-                const value = 'Interviewing';
+                const category = 'null';
+                const value = 'null';
                 const order = 'descending';
                 const jobs = await getFilteredList(category, value, order);
-                setInterviewingJobs(jobs);
+                setRecentJobs(jobs);
             } catch (error) {
                 console.error('Error fetching jobs:', error);
             }
         }
 
-        fetchInterviewingJobs();
+        fetchRecentJobs();
     }, []);
 
     return (
         <div>
-            <h2>Interviewing Jobs</h2>
-            <p>////////////////////</p>
-            <JobList jobs={interviewingJobs}>
+            <h2>Recently added Jobs</h2>
+            <p>+++++++++++++</p>
+            <JobList jobs={recentJobs}>
             </JobList>
-            <p>///////////////////</p>
+            <p>++++++++++++</p>
         </div>
     );
 };
 
-export default InterviewingList;
+export default RecentlyAddedList;

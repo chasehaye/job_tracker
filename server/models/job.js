@@ -34,7 +34,11 @@ const jobSchema = new Schema({
         default: 'Pending',
         required: 'true'
     },
-    favorite: { type: Boolean, default: false}
+    favorite: { 
+        type: Boolean, 
+        default: false,
+        required: true
+    }
 }, {
   timestamps: true
 });

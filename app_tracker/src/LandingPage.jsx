@@ -35,12 +35,6 @@ export default function LandingPage({user}){
                 best job fits based on personal best tech
             </div>
             <div>
-                longest pending // longets interviewing
-            </div>
-            <div>
-                toggle offered // toggle accepted
-            </div>
-            <div>
                 archive of rejected // stalled
             </div>
             <div>

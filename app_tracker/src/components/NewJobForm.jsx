@@ -1,10 +1,14 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { createNewJob, getJobRequest } from '../../utilities/jobs-api';
 import { useNavigate } from "react-router-dom";
+import { techIndexRequest } from '../../utilities/technologies-api';
 
 
 const NewJobForm = () => {
     const navigate = useNavigate();
+    const [ error, setError ] = useState('');
+    const [ technologies, setTechnologies ] = useState([]);
+    const [ selectedTechnologies, setSelectedTechnologies] = useState([]);
 
     const jobNameRef = useRef('');
     const jobTitleRef = useRef('');
@@ -23,8 +27,36 @@ const NewJobForm = () => {
     const managerNameRef = useRef('');
     const managerEmailRef = useRef('');
     const managerPhoneRef = useRef('');
+    const favoriteRef = useRef(false);
 
-    const [ error, setError ] = useState('');
+
+    useEffect(() => {
+        // Fetch technologies when component mounts
+        const fetchTechnologies = async () => {
+            try {
+                const techs = await techIndexRequest();
+                setTechnologies(techs);
+            } catch (err) {
+                setError(err);
+            }
+        };
+
+        fetchTechnologies();
+    }, []);
+
+
+
+    const handleTechnologyClick = (techId) => {
+        setSelectedTechnologies((prevSelected) => {
+            if (prevSelected.includes(techId)) {
+                // Deselect tech
+                return prevSelected.filter((id) => id !== techId);
+            } else {
+                // Select tech
+                return [...prevSelected, techId];
+            }
+        });
+    };
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -53,10 +85,13 @@ const NewJobForm = () => {
                 email: managerEmailRef.current.value,
                 phone: managerPhoneRef.current.value
             },
+            favorite: favoriteRef.current.checked,
+            jobTechnologies: selectedTechnologies
 
         }
         try {
             const newJobResponse = await createNewJob(newJob);
+            console.log(newJobResponse)
             navigate(`/jobs/${newJobResponse._id}`);
         }catch(err) {
             setError(err);
@@ -67,7 +102,7 @@ const NewJobForm = () => {
     <>
     <form onSubmit={handleSubmit}>
 
-        <br />
+
         <p>Details:</p>
 
         <label htmlFor="jobName">Job: </label>
@@ -83,6 +118,24 @@ const NewJobForm = () => {
         <input type="text" id="jobDescription" ref={jobDescriptionRef} />
 
         <br />
+        <br />
+
+        <label>Technologies:</label>
+                <div className="technology-list">
+                    {technologies.map((tech) => (
+                        <span
+                            key={tech._id}
+                            onClick={() => handleTechnologyClick(tech._id)}
+                            className={selectedTechnologies.includes(tech._id) ? "selected" : ""}
+                        >
+                            | {tech.name} |
+                        </span>
+                    ))}
+                </div>
+
+        <br />
+
+
         <p>Adress:</p>
 
         <label htmlFor="address">Address: </label>
@@ -132,6 +185,13 @@ const NewJobForm = () => {
 
         <label htmlFor="managerPhone">Phone: </label>
         <input type="number" id="managerPhone" ref={managerPhoneRef}/>
+
+        <br />
+
+        <label htmlFor="favorite">Favorite (yes or no): </label>
+        <input type="checkbox" id="favorite" ref={favoriteRef} />
+
+
 
         <br/>
         <br/>

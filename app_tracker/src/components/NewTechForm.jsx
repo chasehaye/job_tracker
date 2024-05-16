@@ -6,6 +6,7 @@ const NewTechForm = () => {
     const navigate = useNavigate();
 
     const techNameRef = useRef('');
+    const techFavoriteRef = useRef(false); 
 
     const [ error, setError ] = useState('');
 
@@ -14,6 +15,7 @@ const NewTechForm = () => {
         setError('');
         const newTech = {
             name: techNameRef.current.value,
+            favorite: techFavoriteRef.current.checked,
         }
         try {
             const newTechResponse = await createNewTech(newTech);
@@ -31,6 +33,11 @@ const NewTechForm = () => {
                 
                 <label htmlFor="techName">Tech:</label>
                 <input type="text" id="techName" ref={techNameRef}/>
+
+                <br />
+
+                <label htmlFor="favorite">Favorite (yes or no): </label>
+                <input type="checkbox" id="favorite" ref={techFavoriteRef} />
 
                 <br />
                 <button>Add</button>

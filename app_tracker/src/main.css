@@ -4,4 +4,9 @@
 
 :root {
   color-scheme: dark;
+  color: silver;
+  
+}
+.selected {
+  color: turquoise
 }

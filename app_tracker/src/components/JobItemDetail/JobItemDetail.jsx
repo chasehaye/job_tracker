@@ -8,6 +8,13 @@ export default function JobItemDetail({job, handleDelete, setJob}){
             return !previousState;
         })
     }
+    function renderFavoriteStatus() {
+        if (job.favorite) {
+            return <div>Favorite</div>;
+        } else {
+            return <div>Not Favorite</div>;
+        }
+    }
 
 
     return(
@@ -18,6 +25,9 @@ export default function JobItemDetail({job, handleDelete, setJob}){
                 <div> {job.payPerYear} </div>
             <p>==================</p>
                 <div> {job.status} </div>
+            <p>==================</p>
+            <div>techs below:</div>
+            
             <p>==================</p>
                 <div> {job.jobDescription} </div>
             <p>==================</p>
@@ -45,6 +55,8 @@ export default function JobItemDetail({job, handleDelete, setJob}){
                 <div>{job.contactInfoHiringManager.email}</div>
                 <div>{job.contactInfoHiringManager.phone}</div>
                 </div>
+            <p>==================</p>
+                {renderFavoriteStatus()}
             <p>==================</p>
             <button onClick={toggleEditForm}>
                     {editFormIsOpen ? "Close" : "Edit"}

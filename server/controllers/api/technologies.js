@@ -6,6 +6,7 @@ module.exports = {
     detail,
     deleteTech,
     update,
+    findTechnologiesByIds,
 }
 
 async function index(req, res){
@@ -56,6 +57,12 @@ async function update(req, res){
     }
 }
 
-async function indexInterviewing(req, res){
-    
+async function findTechnologiesByIds(req, res) {
+    try {
+        const techIds = req.query.ids.split(',');
+        const filteredTechnologies = await Technology.find({ _id: { $in: techIds } });
+        res.status(200).json(filteredTechnologies);
+    } catch (err) {
+        res.status(400).json(err);
+    }
 }

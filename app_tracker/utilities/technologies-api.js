@@ -20,3 +20,7 @@ export async function deleteTechRequest(techId, techData){
 export async function updateTechRequest(techId, techData){
     return sendRequest(`${BASE_URL}/${techId}`, 'PUT', techData);
 }
+
+export async function getTechListForJob(techIds) {
+    return sendRequest(`${BASE_URL}/findTech?ids=${techIds.join(',')}`);
+}

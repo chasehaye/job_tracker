@@ -1,22 +1,47 @@
-import { useState } from 'react';
-import EditJobItemForm from './EditJobItemForm';
+import { useState, useEffect } from 'react';
+import { getTechListForJob } from '../../../utilities/technologies-api';
+import { Link } from "react-router-dom";
 
 export default function JobItemDetail({job, handleDelete, setJob}){
     const [editFormIsOpen, setEditFormIsOpen] = useState(false);
+    const [technologies, setTechnologies] = useState([]);
+
+
+
+    useEffect(() => {
+        const fetchTechnologies = async () => {
+            try {
+                const response = await getTechListForJob(job.jobTechnologies);
+                setTechnologies(response); // Assuming response contains the fetched technologies
+            } catch (error) {
+                console.error('Error fetching technologies:', error);
+            }
+        };
+
+        fetchTechnologies();
+    }, [job.jobTechnologies]);
+    function renderTechnologies() {
+        return (
+            <ul>
+                {technologies.map((tech) => (
+                    <Link to={`/tech/${tech._id}`}>
+                        <li key={tech._id}>{tech.name}</li>
+                    </Link>
+                ))}
+            </ul>
+        );
+    }
+
+
+
     function toggleEditForm(){
         setEditFormIsOpen((previousState) => {
             return !previousState;
         })
     }
     function renderFavoriteStatus() {
-        if (job.favorite) {
-            return <div>Favorite</div>;
-        } else {
-            return <div>Not Favorite</div>;
-        }
+        return job.favorite ? <div>Favorite</div> : <div>Not Favorite</div>;
     }
-
-
     return(
         <>
             <p>==================</p>
@@ -27,7 +52,7 @@ export default function JobItemDetail({job, handleDelete, setJob}){
                 <div> {job.status} </div>
             <p>==================</p>
             <div>techs below:</div>
-            
+            {renderTechnologies()}
             <p>==================</p>
                 <div> {job.jobDescription} </div>
             <p>==================</p>

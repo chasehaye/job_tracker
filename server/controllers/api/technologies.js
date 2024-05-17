@@ -30,8 +30,8 @@ async function create(req, res){
 
 async function detail(req, res){
     try{
-        const tech = await Technology.findById(req.params.id);
-        res.status(200).json(tech);
+        const techDetail = await Technology.findById(req.params.id);
+        res.status(200).json(techDetail);
     }catch(err){
         res.status(400).json(err);
     }
@@ -53,7 +53,7 @@ async function update(req, res){
         const updatedTech = await Technology.findByIdAndUpdate(req.params.id, req.body, {new: true});
         res.status(200).json(updatedTech);
     }catch(err){
-        res.status(400).json('Bad Request');
+        res.status(400).json(err);
     }
 }
 

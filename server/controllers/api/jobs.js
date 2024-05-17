@@ -30,8 +30,8 @@ async function create(req, res) {
 
 async function detail(req, res) {
   try{
-    const job = await Job.findById(req.params.id);
-    res.status(200).json(job);
+    const jobDetail = await Job.findById(req.params.id);
+    res.status(200).json(jobDetail);
   }catch(err){
     res.status(400).json(err);
   }

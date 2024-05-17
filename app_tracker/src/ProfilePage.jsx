@@ -1,12 +1,14 @@
 import * as userService from '../utilities/users-service';
 import { checkToken } from "../utilities/users-service";
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function ProfilePage({user, setUser}){
+    const [expDate, setExpDate] = useState(null);
 
     async function handleCheckToken() {
-        const expDate = await checkToken();
-        console.log(expDate);
+        const experationDate = await checkToken();
+        setExpDate(experationDate)
       }
 
     function handleLogOut() {
@@ -28,19 +30,10 @@ export default function ProfilePage({user, setUser}){
             email: {user.email}
         </div>
         <div>
-            name: (add anme to follow)
+            <button onClick={handleCheckToken}>Auto Logout at: </button>
         </div>
         <div>
-            bio:
-        </div>
-        <div>
-            education level
-        </div>
-        <div>
-            location
-        </div>
-        <div>
-            <button onClick={handleCheckToken}>Check Token Exp console</button>
+                {expDate && <p>{expDate.toString()}</p>}
         </div>
         <div>
             <Link to="" onClick={handleLogOut}>Log Out</Link>

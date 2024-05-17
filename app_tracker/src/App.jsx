@@ -24,7 +24,7 @@ return (
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route path="/" element={<LandingPage user={user} />} />
-            <Route path="/profile" element={<ProfilePage user={user} />} />
+            <Route path="/profile" element={<ProfilePage user={user} setUser={setUser} />} />
             <Route path="/jobs/new" element={<AddJobPage />} />
             <Route path="/jobs" element={<JobListPage />} />
             <Route path="/jobs/:jobId" element={<JobDetailPage />} />

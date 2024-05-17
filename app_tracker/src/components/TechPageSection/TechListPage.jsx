@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { techIndexRequest } from "../utilities/technologies-api";
-import TechList from "./components/TechList/TechList";
+import { techIndexRequest } from "../../../utilities/technologies-api";
+import TechList from "../TechList/TechList";
 
 export default function TechListPage(){
 

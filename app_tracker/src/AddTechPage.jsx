@@ -1,4 +1,4 @@
-import NewTechForm from "./components/NewTechForm";
+import NewTechForm from "./components/FormComponent/NewTechForm";
 
 export default function AddTech(){
     return(

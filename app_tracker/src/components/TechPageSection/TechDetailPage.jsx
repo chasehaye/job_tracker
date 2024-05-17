@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { getTechRequest, deleteTechRequest } from "../utilities/technologies-api";
+import { getTechRequest, deleteTechRequest } from "../../../utilities/technologies-api";
 import { useEffect, useState } from "react";
-import TechItemDetail from "./components/TechItemDetail/TechItemDetail";
+import TechItemDetail from "../TechItemDetail/TechItemDetail";
 
 export default function TechDetailPage(){
     let { techId } = useParams();

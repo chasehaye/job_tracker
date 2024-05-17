@@ -22,5 +22,5 @@ export async function updateTechRequest(techId, techData){
 }
 
 export async function getTechListForJob(techIds) {
-    return sendRequest(`${BASE_URL}/findTech?ids=${techIds.join(',')}`);
+    return sendRequest(`${BASE_URL}/findSelectedTech?ids=${techIds.join(',')}`);
 }

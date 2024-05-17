@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import TechItem from "./TechItem";
+import TechItem from "./TechItem/TechItem";
 
 export default function TechList({technologies}){
     const [techComponent, setTechComponent] = useState(null);

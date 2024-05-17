@@ -8,11 +8,10 @@ import NavBar from './components/NavBar';
 import AddJobPage from './AddJobPage';
 import JobListPage from './JobListPage'
 import JobDetailPage from './JobDetailPage';
-import AddTechPage from './AddTechPage';
-import TechListPage from './TechListPage';
-import TechDetailPage from './TechDetailPage';
+import TechDetailPage from './components/TechPageSection/TechDetailPage';
 import LandingPage from './LandingPage';
 import ProfilePage from './ProfilePage';
+import TechMainPage from './TechMainPage';
 
 
 const App = () => {
@@ -29,9 +28,8 @@ return (
             <Route path="/jobs/new" element={<AddJobPage />} />
             <Route path="/jobs" element={<JobListPage />} />
             <Route path="/jobs/:jobId" element={<JobDetailPage />} />
-            <Route path="/tech/new" element={<AddTechPage />} />
-            <Route path="/tech" element={<TechListPage />} />
             <Route path="/tech/:techId" element={<TechDetailPage />} />
+            <Route path="/tech" element={<TechMainPage />} />
           </Routes>
         </>
         :

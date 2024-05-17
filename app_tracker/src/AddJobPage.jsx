@@ -1,4 +1,4 @@
-import NewJobForm from "./components/NewJobForm";
+import NewJobForm from "./components/FormComponent/NewJobForm";
 
 export default function AddJob(){
   return (

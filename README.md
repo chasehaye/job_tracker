@@ -1,6 +1,5 @@
 ## Main Project
 ## Design plans and Brain Storm
-1. add the favorite feature to job and tech accross the application
 2. @@@ add the relation on the job creation page that allows for adding techs to individual jobs do the same on the edit page
 3. on the filtered list call add a another parameter that allows for a declaration on how long an individual list should be
 4. spend time reorganizing and calrifiying the file structure

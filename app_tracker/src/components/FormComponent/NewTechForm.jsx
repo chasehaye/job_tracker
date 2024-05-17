@@ -1,5 +1,5 @@
 import { useRef, useState} from 'react';
-import { createNewTech } from '../../utilities/technologies-api';
+import { createNewTech } from '../../../utilities/technologies-api';
 import { useNavigate } from 'react-router-dom';
 
 const NewTechForm = () => {

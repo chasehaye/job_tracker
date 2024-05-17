@@ -3,7 +3,7 @@ const router = express.Router();
 const techCtrl = require('../../controllers/api/technologies');
 
 
-router.get('/findTech', techCtrl.findTechnologiesByIds);
+router.get('/findSelectedTech', techCtrl.findTechnologiesByIds);
 router.get('/', techCtrl.index);
 router.post('/', techCtrl.create);
 router.get('/:id', techCtrl.detail);

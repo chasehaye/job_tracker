@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
-import { createNewJob, getJobRequest } from '../../utilities/jobs-api';
+import { createNewJob, getJobRequest } from '../../../utilities/jobs-api';
 import { useNavigate } from "react-router-dom";
-import { techIndexRequest } from '../../utilities/technologies-api';
+import { techIndexRequest } from '../../../utilities/technologies-api';
 
 
 const NewJobForm = () => {

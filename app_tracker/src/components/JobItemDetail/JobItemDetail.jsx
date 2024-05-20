@@ -14,22 +14,31 @@ export default function JobItemDetail({job, handleDelete, setJob}){
                 const response = await getTechListForJob(job.jobTechnologies);
                 setTechnologies(response); // Assuming response contains the fetched technologies
             } catch (error) {
-                console.error('Error fetching technologies:', error);
+                console.error('No technologies to fetch:', error);
             }
         };
 
         fetchTechnologies();
     }, [job.jobTechnologies]);
     function renderTechnologies() {
-        return (
-            <ul>
-                {technologies.map((tech) => (
-                    <Link to={`/tech/${tech._id}`}>
-                        <li key={tech._id}>{tech.name}</li>
-                    </Link>
-                ))}
-            </ul>
-        );
+        if(technologies && technologies.length > 0){
+            return (
+                <ul>
+                    {technologies.map((tech) => (
+                        <Link to={`/tech/${tech._id}`} key={tech._id}>
+                            <li>{tech.name}</li>
+                        </Link>
+                    ))}
+                </ul>
+            );
+        }
+        else{
+            return (
+                <div>
+                    there are no added techs for this job
+                </div>
+            )
+        }
     }
 
 
@@ -44,18 +53,22 @@ export default function JobItemDetail({job, handleDelete, setJob}){
     }
     return(
         <>
-            <p>==================</p>
-                <div> {job.jobName} </div>
+        <main className='bg-gray-800'>
+            <div>
+                <div className='text-green-600'> {job.jobName} </div>
                 <div> {job.jobTitle} </div>
                 <div> {job.payPerYear} </div>
-            <p>==================</p>
-                <div> {job.status} </div>
+            </div>
+            <div> 
+                {job.status} 
+            </div>
             <p>==================</p>
             <div>techs below:</div>
             {renderTechnologies()}
             <p>==================</p>
-                <div> {job.jobDescription} </div>
-            <p>==================</p>
+                <div> 
+                    {job.jobDescription} 
+                </div>
             {job.jobLocation.address && (
                 <>
                     <div>Location:</div>
@@ -91,6 +104,7 @@ export default function JobItemDetail({job, handleDelete, setJob}){
                 }
             <p>==================</p>
             <button onClick={handleDelete}>Delete</button>
+        </main>
         </>
     )
 }

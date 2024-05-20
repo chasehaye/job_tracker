@@ -39,7 +39,7 @@ async function detail(req, res){
 
 async function deleteTech(req, res){
     try{
-        await Technology.findByIdAndDelete(req.params.id);
+        const techToDelete = await Technology.findByIdAndDelete(req.params.id);
         res.status(200).json({
             data: 'success'
         })

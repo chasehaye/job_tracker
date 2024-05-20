@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { techIndexRequest } from '../../../utilities/technologies-api';
 
 
-const NewJobForm = () => {
+const NewJobForm = ({user}) => {
     const navigate = useNavigate();
     const [ error, setError ] = useState('');
     const [ technologies, setTechnologies ] = useState([]);
@@ -86,7 +86,8 @@ const NewJobForm = () => {
                 phone: managerPhoneRef.current.value
             },
             favorite: favoriteRef.current.checked,
-            jobTechnologies: selectedTechnologies
+            jobTechnologies: selectedTechnologies,
+            user: user._id
 
         }
         try {

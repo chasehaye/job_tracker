@@ -25,7 +25,7 @@ return (
           <Routes>
             <Route path="/" element={<LandingPage user={user} />} />
             <Route path="/profile" element={<ProfilePage user={user} setUser={setUser} />} />
-            <Route path="/jobs/new" element={<AddJobPage />} />
+            <Route path="/jobs/new" element={<AddJobPage user={user} />} />
             <Route path="/jobs" element={<JobListPage />} />
             <Route path="/jobs/:jobId" element={<JobDetailPage />} />
             <Route path="/tech/:techId" element={<TechDetailPage />} />

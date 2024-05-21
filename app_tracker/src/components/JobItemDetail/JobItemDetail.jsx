@@ -54,41 +54,47 @@ export default function JobItemDetail({job, handleDelete, setJob}){
     return(
         <>
         <main className='bg-gray-800'>
-            <div>
-                <div className='text-green-600'> {job.jobName} </div>
+            <div className='text-green-600'>
+                <div> {job.jobName} </div>
                 <div> {job.jobTitle} </div>
                 <div> {job.payPerYear} </div>
             </div>
-            <div> 
+            <p>==================</p>
+            <div className='text-red-600'> 
                 {job.status} 
             </div>
             <p>==================</p>
-            <div>techs below:</div>
-            {renderTechnologies()}
+            <div className='text-blue-600'>
+                techs below:
+                {renderTechnologies()}
+            </div>
             <p>==================</p>
-                <div> 
+                <div className='text-purple-600'> 
                     {job.jobDescription} 
                 </div>
+                <p>==================</p>
             {job.jobLocation.address && (
                 <>
+                <div className='text-orange-600'>
                     <div>Location:</div>
                     <div>{job.jobLocation.address}</div>
                     <div>{job.jobLocation.city}, {job.jobLocation.state}, {job.jobLocation.zip}</div>
-                    <p>==================</p>
+                </div>
                 </>
             )}
-                <div>Links:</div>
+                <div className='text-yellow-600'>Links:
                 <div>{job.companySiteLink}</div>
                 <div>{job.companyApplicationSiteLink}</div>
                 <div>{job.recruitingPlatform}</div>
+                </div>
             <p>==================</p>
-                <div>Contacts:</div>
-                <div>
+                Contacts:
+                <div className='text-pink-600'>
                 <div>{job.contactInfoCompany.name}</div>
                 <div>{job.contactInfoCompany.email}</div>
                 <div>{job.contactInfoCompany.phone}</div>
                 </div>
-                <div>
+                <div className='text-indigo-600'>
                 <div>{job.contactInfoHiringManager.name}</div>
                 <div>{job.contactInfoHiringManager.email}</div>
                 <div>{job.contactInfoHiringManager.phone}</div>

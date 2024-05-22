@@ -22,6 +22,7 @@ return (
       { user ?
         <>
           <NavBar user={user} setUser={setUser} />
+          <main className='pt-60'>
           <Routes>
             <Route path="/" element={<LandingPage user={user} />} />
             <Route path="/profile" element={<ProfilePage user={user} setUser={setUser} />} />
@@ -31,9 +32,11 @@ return (
             <Route path="/tech/:techId" element={<TechDetailPage />} />
             <Route path="/tech" element={<TechMainPage />} />
           </Routes>
+          </main>
         </>
         :
         <Authorization setUser={setUser} />
+        
       }
     </main>
 );

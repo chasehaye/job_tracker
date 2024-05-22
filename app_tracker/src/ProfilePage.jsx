@@ -20,6 +20,7 @@ export default function ProfilePage({user, setUser}){
 
     return (
         <>
+        <main>
         <div>
             profile page
         </div>
@@ -38,6 +39,7 @@ export default function ProfilePage({user, setUser}){
         <div>
             <Link to="" onClick={handleLogOut}>Log Out</Link>
         </div>
+        </main>
         </>
     )
 }

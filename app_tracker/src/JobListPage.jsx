@@ -15,11 +15,13 @@ export default function JobListPage(){
 
   return (
     <>
+    <main>
       <h1>List</h1>
       <h3>Add a filter toggle to the list </h3>
-      <h1>=========================================</h1>
+      <h1>================</h1>
       <JobList jobs={jobs}>
       </JobList>
+    </main>
     </>
   );
 }

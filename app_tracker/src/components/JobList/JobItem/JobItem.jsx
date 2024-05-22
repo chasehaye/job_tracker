@@ -25,6 +25,7 @@ export default function JobItem({job}){
 //modify the showEdit status form to render all the menus
     return (
         <>
+        <div>
             <div>
                 <Link to={`/jobs/${job._id}`}>
                     <div>|| {job.jobName} || {job.jobTitle} || {job.payPerYear} || {job.status} || {job.updatedAt}</div>
@@ -80,7 +81,7 @@ export default function JobItem({job}){
                 </div>
             )}
 
-
+    </div>
 
         </>
     )

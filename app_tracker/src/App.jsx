@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from 'react';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../utilities/users-service';
 
@@ -12,17 +12,28 @@ import TechDetailPage from './components/TechPageSection/TechDetailPage';
 import LandingPage from './LandingPage';
 import ProfilePage from './ProfilePage';
 import TechMainPage from './TechMainPage';
+import MobileNavSimple from './components/MobileNavSimple';
 
 
 const App = () => {
+
 const [user, setUser] = useState(getUser());
+const [isNavBarVisible, setIsNavBarVisible] = useState(true);
+
+const toggleNavBar = () => {
+  setIsNavBarVisible(!isNavBarVisible);
+};
 
 return (
     <main>
       { user ?
         <>
-          <NavBar user={user} setUser={setUser} />
-          <main className='pt-60'>
+          {isNavBarVisible ? 
+          <MobileNavSimple user={user} toggleNavBar={toggleNavBar} />
+            :
+          <NavBar user={user}  toggleNavBar={toggleNavBar} />
+          }
+          <main className={isNavBarVisible ? 'pt-10' : 'pt-60'}>
           <Routes>
             <Route path="/" element={<LandingPage user={user} />} />
             <Route path="/profile" element={<ProfilePage user={user} setUser={setUser} />} />

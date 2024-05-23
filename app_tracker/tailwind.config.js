@@ -8,11 +8,11 @@ export default {
     extend: {
       colors: {
         // Define your custom colors here
-        C1: '#585123',
-        C2: '#EEC170',
-        C3: '#F2A65A',
-        C4: '#F58549',
-        C5: '#772F1A',
+        C1: '#69626D',
+        C2: '#BCAF9C',
+        C3: '#CBBEB3',
+        C4: '#D9BDC5',
+        C5: '#E8C7DE',
         C6: '#000000',
         C7: '#FFFFFF',
       },

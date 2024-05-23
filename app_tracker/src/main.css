@@ -1,18 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base */
+* {
+  font-family: 'Roboto Mono', monospace;
+}
 html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
   color-scheme: dark;
   color: silver;
-  
+  --C1: #69626D;
+  --C2: #BCAF9C;
+  --C3: #CBBEB3;
+  --C4: #D9BDC5;
+  --C5: #E8C7DE;
+  --C6: #000000;
+  --C7: #FFFFFF;
 }
+
+/* ScrollBar */
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background: black;
+}
+body::-webkit-scrollbar-thumb {
+  background: #888;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* tech selector variable */
 .selected {
-  color: turquoise
+  color: var(--C1)
 }

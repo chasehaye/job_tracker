@@ -4,12 +4,7 @@ import { updateJobRequest } from '../../../../utilities/jobs-api';
 export default function EditStatus({job}){
 
     const [error, setError] = useState('');
-    const [showStatusForm, setshowStatusForm] = useState(false);
     const [status, setStatus] = useState(job.status);
-
-    const toggle = () => {
-        setshowStatusForm((prev) => !prev);
-    };
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -26,9 +21,6 @@ export default function EditStatus({job}){
     }
   return (
     <>
-        <button onClick={toggle}>toggle form</button>
-
-        {showStatusForm && (
         <form onSubmit={handleSubmit}>
             <label htmlFor="status">Status:</label>
             <select id="status" value={status} onChange={(e) => setStatus(e.target.value)}>
@@ -39,9 +31,8 @@ export default function EditStatus({job}){
                 <option value="Rejected">Rejected</option>
                 <option value="Stalled">Stalled</option>
             </select>
-            <button>Submit Change</button>
+            <button>Submit</button>
         </form>
-        )}
         { error && <p>{JSON.stringify(error)}</p>}
 
     </>

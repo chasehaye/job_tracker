@@ -21,7 +21,11 @@ export default function JobList({jobs}) {
 
     return (
         <>
-            {jobsComponent}
+            <main className="pt-6">
+                    {jobsComponent}
+
+            </main>
+
         </>
     )
 }

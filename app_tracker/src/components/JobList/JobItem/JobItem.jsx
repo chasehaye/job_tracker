@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EditStatus from "./EditStatus";
 
-export default function JobItem({job}){
+export default function JobItem({ job }) {
     const [showLinks, setShowLinks] = useState(false);
     const [showContacts, setShowContacts] = useState(false);
     const [showEditStatus, setShowEditStatus] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const toggleLinks = () => {
         setShowLinks((prev) => !prev);
@@ -13,7 +14,7 @@ export default function JobItem({job}){
             setShowContacts(false);
         }
     };
-    const toggleContacts = () =>{
+    const toggleContacts = () => {
         setShowContacts((prev) => !prev);
         if (!showContacts && showLinks) {
             setShowLinks(false);
@@ -21,68 +22,76 @@ export default function JobItem({job}){
     };
     const editStatus = () => {
         setShowEditStatus((prev) => !prev);
-    }
-//modify the showEdit status form to render all the menus
+    };
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <>
-        <div>
             <div>
-                <Link to={`/jobs/${job._id}`}>
-                    <div>|| {job.jobName} || {job.jobTitle} || {job.payPerYear} || {job.status} || {job.updatedAt}</div>
-                </Link>
-            </div>
+                <div className="grid grid-cols-3 gap-4 rounded-lg bg-C4 text-C6 card-shadow pt-4 pb-6 px-8 mx-4 mb-8">
+                    <div>
+                        <Link to={`/jobs/${job._id}`}>
+                            <div>{job.jobName}</div>
+                            <div>{job.jobTitle}</div>
+                        </Link>
+                        <div onClick={editStatus} className="cursor-pointer">
+                            {showEditStatus ? "close" : job.status}
+                        </div>
+                        <div>{job.payPerYear}</div>
+                    </div>
 
-
-            <div>
-                <button onClick={editStatus}>
-                    {showEditStatus ? "\\\\close\\\\" : "\\\\update status\\\\"}
-                </button>
-            </div>
-
-            <div>
-                <button onClick={toggleLinks}>
-                    {showLinks ? "//Toggle Links//" : "//Toggle Links//"}
-                </button>
-            </div>
-            <div>
-                <button onClick={toggleContacts}>
-                    {showLinks ? "\\\\Toggle Contacts\\\\" : "\\\\Toggle Contacts\\\\"}
-                </button>
-            </div>
-
-
-
-            {showLinks && (
-                <div>
-                    <p>
-                        Company: {job.companySiteLink}
-                    </p>
-                    <p>
-                    Application Site: {job.companyApplicationSiteLink}
-                    </p>
-                    <p>
-                        Recruiting Platform: {job.recruitingPlatform}
-                        </p>
+                    {windowWidth > 768 && (
+                        <div>
+                            <div>
+                                <button onClick={toggleContacts}>
+                                    {showContacts ? "Hide contacts" : "Show contacts"}
+                                </button>
+                            </div>
+                            <div>
+                                <button onClick={toggleLinks}>
+                                    {showLinks ? "Hide links" : "Show links"}
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                        
+                        
+                        
+                    <div>
+                        {showLinks && (
+                            <div>
+                                <p>Company: {job.companySiteLink}</p>
+                                <p>Application Site: {job.companyApplicationSiteLink}</p>
+                                <p>Recruiting Platform: {job.recruitingPlatform}</p>
+                            </div>
+                        )}
+                        {showContacts && (
+                            <div>
+                                <p>
+                                    Company: {job.contactInfoCompany.name}_{job.contactInfoCompany.email}_{job.contactInfoCompany.phone}
+                                </p>
+                                <p>
+                                    Hiring Manager: {job.contactInfoHiringManager.name}_{job.contactInfoHiringManager.email}_{job.contactInfoHiringManager.phone}
+                                </p>
+                            </div>
+                        )}
+                        {showEditStatus && (
+                            <div>
+                                <EditStatus job={job} />
+                            </div>
+                        )}
+                    </div>
                 </div>
-            )}
-            {showContacts && (
-                <div>
-                    <p>
-                        Company: {job.contactInfoCompany.name}_{job.contactInfoCompany.email}_{job.contactInfoCompany.phone}
-                    </p>
-                    <p>
-                        Hiring Manager: {job.contactInfoHiringManager.name}_{job.contactInfoHiringManager.email}_{job.contactInfoHiringManager.phone}
-                    </p>
-                </div>
-            )}
-            {showEditStatus && (
-                <div>
-                    <EditStatus job={job} />
-                </div>
-            )}
-
-    </div>
-
+            </div>
         </>
-    )
+    );
 }

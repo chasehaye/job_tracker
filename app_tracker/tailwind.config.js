@@ -12,9 +12,9 @@ export default {
         C2: '#BCAF9C',
         C3: '#CBBEB3',
         C4: '#D9BDC5',
-        C5: '#E8C7DE',
-        C6: '#000000',
-        C7: '#FFFFFF',
+        C5: 'red', //close button color
+        C6: '#000000', //black
+        C7: '#FFFFFF', //white
       },
     },
   },

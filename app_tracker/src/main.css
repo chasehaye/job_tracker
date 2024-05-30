@@ -19,7 +19,7 @@ html, body {
   --C2: #BCAF9C;
   --C3: #CBBEB3;
   --C4: #D9BDC5;
-  --C5: #E8C7DE;
+  --C5: red;
   --C6: #000000;
   --C7: #FFFFFF;
 }
@@ -41,4 +41,8 @@ body::-webkit-scrollbar-thumb:hover {
 /* tech selector variable */
 .selected {
   color: var(--C1)
+}
+
+.card-shadow {
+  box-shadow: 2px 3px 5px var(--C1);
 }

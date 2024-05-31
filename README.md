@@ -8,3 +8,8 @@
 6. begin page design
 
 10. redirect to a description page only after user sign up
+
+
+
+CSS
+11. add a resuable button componenent

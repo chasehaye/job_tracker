@@ -6,6 +6,7 @@ export default function JobItem({ job }) {
     const [showLinks, setShowLinks] = useState(false);
     const [showContacts, setShowContacts] = useState(false);
     const [showEditStatus, setShowEditStatus] = useState(false);
+    const [showCompany, setShowCompany] = useState(true); // New state for toggling Company section
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const toggleLinks = () => {
@@ -14,12 +15,18 @@ export default function JobItem({ job }) {
             setShowContacts(false);
         }
     };
+
     const toggleContacts = () => {
         setShowContacts((prev) => !prev);
         if (!showContacts && showLinks) {
             setShowLinks(false);
         }
     };
+
+    const toggleCompanyManager = () => {
+        setShowCompany((prev) => !prev);
+    };
+
     const editStatus = () => {
         setShowEditStatus((prev) => !prev);
     };
@@ -50,7 +57,7 @@ export default function JobItem({ job }) {
                     </div>
 
                     {windowWidth > 768 && (
-                        <div>
+                        <div className="text-center">
                             <div>
                                 <button onClick={toggleContacts}>
                                     {showContacts ? "Hide contacts" : "Show contacts"}
@@ -63,25 +70,32 @@ export default function JobItem({ job }) {
                             </div>
                         </div>
                     )}
-                        
-                        
-                        
-                    <div>
+                    <div className="text-center">
                         {showLinks && (
                             <div>
+                                <p>Application: {job.companyApplicationSiteLink}</p>
                                 <p>Company: {job.companySiteLink}</p>
-                                <p>Application Site: {job.companyApplicationSiteLink}</p>
-                                <p>Recruiting Platform: {job.recruitingPlatform}</p>
+                                <p>Platform: {job.recruitingPlatform}</p>
                             </div>
                         )}
                         {showContacts && (
                             <div>
-                                <p>
-                                    Company: {job.contactInfoCompany.name}_{job.contactInfoCompany.email}_{job.contactInfoCompany.phone}
-                                </p>
-                                <p>
-                                    Hiring Manager: {job.contactInfoHiringManager.name}_{job.contactInfoHiringManager.email}_{job.contactInfoHiringManager.phone}
-                                </p>
+                                {showCompany ? (
+                                    <div>
+                                        <div>{job.contactInfoCompany.name}</div>
+                                        <div>{job.contactInfoCompany.email}</div>
+                                        <div>{job.contactInfoCompany.phone}</div>
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <div>{job.contactInfoHiringManager.name}</div>
+                                        <div>{job.contactInfoHiringManager.email}</div>
+                                        <div>{job.contactInfoHiringManager.phone}</div>
+                                    </div>
+                                )}
+                                <button onClick={toggleCompanyManager}>
+                                    {showCompany ? "Show Manager" : "Show Company"}
+                                </button>
                             </div>
                         )}
                         {showEditStatus && (

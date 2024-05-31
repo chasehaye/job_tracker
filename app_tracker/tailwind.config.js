@@ -11,7 +11,7 @@ export default {
         C1: '#69626D', //navbar
         C2: '#BCAF9C',
         C3: '#9370DB', //submit button color
-        C4: '#D8BFD8', //div bg color
+        C4: '#BFA6BF', //div bg color
         C5: '#9400D3', //close button color
         C6: '#000000', //black
         C7: '#FFFFFF', //white

@@ -41,7 +41,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* tech selector variable */
 .selected {
-  color: var(--C1)
+  color: var(--C3)
 }
 
 .card-shadow {
@@ -52,7 +52,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 
 
-
+.links-container {
+  width: 100%;
+}
 
 
 

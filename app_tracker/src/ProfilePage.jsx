@@ -47,7 +47,7 @@ export default function ProfilePage({ user, setUser }) {
                     {expDate && <p>{expDate.toString()}</p>}
                 </div>
 
-                <Link to="" onClick={handleLogOut} className="border p-2 pl-4 pr-4 rounded cursor-pointer absolute bottom-0 right-0 mb-12 mr-2 hover:border-C5 hover:text-C5">
+                <Link to="" onClick={handleLogOut} className="border p-2 pl-4 pr-4 rounded cursor-pointer fixed bottom-0 right-0 mb-4 mr-2 hover:border-C5 hover:text-C5">
                     <div className="text-lg">X</div>
                 </Link>
             </main>

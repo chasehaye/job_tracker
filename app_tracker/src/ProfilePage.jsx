@@ -36,7 +36,7 @@ export default function ProfilePage({ user, setUser }) {
                             </div>
                         </div>
                         <div className="flex justify-center">
-                            <div className="mt-4 border border-C6 rounded cursor-pointer">
+                            <div className="mt-4 border border-C6 rounded cursor-pointer hover:text-C3 hover:border-C3">
                                 <button onClick={handleCheckToken} className='mx-2'>Auto Log At</button>
                             </div>
                         </div>

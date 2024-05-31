@@ -10,12 +10,12 @@ export default {
         // Define your custom colors here
         C1: '#69626D', //navbar
         C2: '#BCAF9C',
-        C3: 'green', //submit button color
-        C4: 'maroon', //div bg color
-        C5: 'red', //close button color
+        C3: '#9370DB', //submit button color
+        C4: '#D8BFD8', //div bg color
+        C5: '#9400D3', //close button color
         C6: '#000000', //black
         C7: '#FFFFFF', //white
-        C8: 'blue', //select
+        C8: '#663399', //select
         //modify the colors in main css as well
       },
     },

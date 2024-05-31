@@ -45,37 +45,37 @@ export default function EditStatus({ job }) {
                     <div className="absolute bg-C1 border rounded-md shadow-md w-40">
                         <button
                             onClick={() => handleOptionClick("Pending")}
-                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none"
+                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none  hover:text-C7"
                         >
                             Pending
                         </button>
                         <button
                             onClick={() => handleOptionClick("Interviewing")}
-                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none"
+                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none hover:text-C7"
                         >
                             Interviewing
                         </button>
                         <button
                             onClick={() => handleOptionClick("Offered")}
-                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none"
+                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none hover:text-C7"
                         >
                             Offered
                         </button>
                         <button
                             onClick={() => handleOptionClick("Accepted")}
-                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none"
+                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none hover:text-C7"
                         >
                             Accepted
                         </button>
                         <button
                             onClick={() => handleOptionClick("Rejected")}
-                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none"
+                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none hover:text-C7"
                         >
                             Rejected
                         </button>
                         <button
                             onClick={() => handleOptionClick("Stalled")}
-                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none"
+                            className="block w-full px-4 py-2 text-left hover:bg-C8 rounded-md focus:outline-none hover:text-C7"
                         >
                             Stalled
                         </button>

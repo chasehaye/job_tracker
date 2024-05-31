@@ -17,11 +17,12 @@ html, body {
   color: silver;
   --C1: #69626D;
   --C2: #BCAF9C;
-  --C3: #CBBEB3;
-  --C4: #D9BDC5;
-  --C5: red;
+  --C3: #9370DB;
+  --C4: #D8BFD8;
+  --C5: #9400D3;
   --C6: #000000;
   --C7: #FFFFFF;
+  --C8: #663399;
 }
 
 /* ScrollBar */

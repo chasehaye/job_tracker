@@ -50,7 +50,7 @@ export default function JobItem({ job }) {
                             <div>{job.jobName}</div>
                             <div>{job.jobTitle}</div>
                         </Link>
-                        <div onClick={editStatus} className="cursor-pointer">
+                        <div onClick={editStatus} className="cursor-pointer hover:text-C3">
                             {showEditStatus ? "close" : job.status}
                         </div>
                         <div>{job.payPerYear}</div>
@@ -59,12 +59,12 @@ export default function JobItem({ job }) {
                     {windowWidth > 768 && (
                         <div className="text-center">
                             <div>
-                                <button onClick={toggleContacts}>
+                                <button onClick={toggleContacts} className="hover:text-C3">
                                     {showContacts ? "Hide contacts" : "Show contacts"}
                                 </button>
                             </div>
                             <div>
-                                <button onClick={toggleLinks}>
+                                <button onClick={toggleLinks} className="hover:text-C3">
                                     {showLinks ? "Hide links" : "Show links"}
                                 </button>
                             </div>
@@ -93,7 +93,7 @@ export default function JobItem({ job }) {
                                         <div>{job.contactInfoHiringManager.phone}</div>
                                     </div>
                                 )}
-                                <button onClick={toggleCompanyManager}>
+                                <button onClick={toggleCompanyManager} className="hover:text-C3">
                                     {showCompany ? "Show Manager" : "Show Company"}
                                 </button>
                             </div>

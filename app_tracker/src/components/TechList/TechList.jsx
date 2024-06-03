@@ -20,7 +20,9 @@ export default function TechList({technologies}){
     }, [technologies])
     return (
     <>
+    <div className="grid grid-cols-1 gap-1 overflow-auto md:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-7 mb-10">
         {techComponent}
+    </div>
     </>
     )
 }

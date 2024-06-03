@@ -15,8 +15,7 @@ export default function TechListPage(){
 
     return(
         <>
-        <p>Tech List Page</p>
-        <p>==================</p>
+        <div className="block text-center mx-auto underline text-lg mb-6 mt-10">List of Exisitng Technologies</div>
         <TechList technologies={technologies}>
         </TechList>
         </>

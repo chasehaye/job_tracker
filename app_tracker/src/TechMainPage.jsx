@@ -5,13 +5,10 @@ import AddTechPage from './AddTechPage'
 const TechPage = () => {
   return (
     <>
-    <div>TechPage</div>
 
-    <TechListPage />
-
-    <p>===============</p>
 
     <AddTechPage />
+    <TechListPage />
 
     </>
 

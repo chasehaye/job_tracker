@@ -23,10 +23,10 @@ export default function JobItemDetail({job, handleDelete, setJob}){
     function renderTechnologies() {
         if(technologies && technologies.length > 0){
             return (
-                <ul>
+                <ul className="grid grid-cols-1 gap-1 overflow-auto max-h-60 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
                     {technologies.map((tech) => (
-                        <Link to={`/tech/${tech._id}`} key={tech._id}>
-                            <li>{tech.name}</li>
+                        <Link to={`/tech/${tech._id}`} key={tech._id} >
+                            <li className='flex flex-col items-center hover:text-C3'>|{tech.name}|</li>
                         </Link>
                     ))}
                 </ul>
@@ -53,63 +53,68 @@ export default function JobItemDetail({job, handleDelete, setJob}){
     }
     return(
         <>
-        <main className='bg-gray-800'>
-            <div className='text-green-600'>
-                <div> {job.jobName} </div>
-                <div> {job.jobTitle} </div>
-                <div> {job.payPerYear} </div>
-            </div>
-            <p>==================</p>
-            <div className='text-red-600'> 
-                {job.status} 
-            </div>
-            <p>==================</p>
-            <div className='text-blue-600'>
-                techs below:
-                {renderTechnologies()}
-            </div>
-            <p>==================</p>
-                <div className='text-purple-600'> 
-                    {job.jobDescription} 
+        <main className='mt-6'>
+            <div className="grid grid-cols-1 gap-4 rounded-lg bg-C4 text-C6 card-shadow pt-6 pb-6 px-8 mx-4 mb-8 lg:grid-cols-3">
+                <div className='flex flex-col items-center mt-4'>
+                    <div className='text-2xl'> {job.jobName} </div>
+                    <div className='text-md'> {job.jobTitle} </div>
+                    <div className='text-md'> ${job.payPerYear} </div>
                 </div>
-                <p>==================</p>
-            {job.jobLocation.address && (
-                <>
-                <div className='text-orange-600'>
+                <div className='m-4 ml-0 mr-6'> 
+                        {job.jobDescription} 
+                </div>
+                <div className='mt-4'>
+                    <div className='flex flex-col items-center text-center mx-auto underline text-lg mb-6'>technologies</div>
+                    {renderTechnologies()}
+                </div>
+
+
+
+                <div className='flex flex-col items-center my-10'>
+                    <div>Related links</div>
+                    <div>{job.companySiteLink}</div>
+                    <div>{job.companyApplicationSiteLink}</div>
+                    <div>{job.recruitingPlatform}</div>
+                </div>
+                <div className='flex flex-col items-center my-10'>
+                    <div>Company info</div>
+                    <div>{job.contactInfoCompany.name}</div>
+                    <div>{job.contactInfoCompany.email}</div>
+                    <div>{job.contactInfoCompany.phone}</div>
+                </div>
+                <div className='flex flex-col items-center my-10'>
+                    <div>Manager info</div>
+                    <div>{job.contactInfoHiringManager.name}</div>
+                    <div>{job.contactInfoHiringManager.email}</div>
+                    <div>{job.contactInfoHiringManager.phone}</div>
+                </div>
+
+
+
+                {job.jobLocation.address && (
+                <div className='flex flex-col items-center'>
                     <div>Location:</div>
                     <div>{job.jobLocation.address}</div>
                     <div>{job.jobLocation.city}, {job.jobLocation.state}, {job.jobLocation.zip}</div>
                 </div>
-                </>
-            )}
-                <div className='text-yellow-600'>Links:
-                <div>{job.companySiteLink}</div>
-                <div>{job.companyApplicationSiteLink}</div>
-                <div>{job.recruitingPlatform}</div>
+                )}
+                <div className='flex flex-col items-center'> 
+                    {job.status} 
+                    {renderFavoriteStatus()}
+
                 </div>
-            <p>==================</p>
-                Contacts:
-                <div className='text-pink-600'>
-                <div>{job.contactInfoCompany.name}</div>
-                <div>{job.contactInfoCompany.email}</div>
-                <div>{job.contactInfoCompany.phone}</div>
+                <div className='flex flex-col items-center'>
+                    <button onClick={toggleEditForm} className='hover:text-C3'>
+                            {editFormIsOpen ? "Close" : "Edit"}
+                    </button>
+                    <button onClick={handleDelete} className='hover:text-C5'>
+                        Delete
+                    </button>
                 </div>
-                <div className='text-indigo-600'>
-                <div>{job.contactInfoHiringManager.name}</div>
-                <div>{job.contactInfoHiringManager.email}</div>
-                <div>{job.contactInfoHiringManager.phone}</div>
-                </div>
-            <p>==================</p>
-                {renderFavoriteStatus()}
-            <p>==================</p>
-            <button onClick={toggleEditForm}>
-                    {editFormIsOpen ? "Close" : "Edit"}
-                </button>
-                { editFormIsOpen && 
-                    <EditJobItemForm job={job} setJob={setJob} setEditFormIsOpen={setEditFormIsOpen}></EditJobItemForm>
-                }
-            <p>==================</p>
-            <button onClick={handleDelete}>Delete</button>
+            </div>
+            { editFormIsOpen && 
+                <EditJobItemForm job={job} setJob={setJob} setEditFormIsOpen={setEditFormIsOpen}></EditJobItemForm>
+            }
         </main>
         </>
     )

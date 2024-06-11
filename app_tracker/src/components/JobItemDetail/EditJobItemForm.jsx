@@ -65,86 +65,120 @@ export default function EditJobItemForm({job, setJob, setEditFormIsOpen}){
         { error && <p>{JSON.stringify(error)}</p>}
         <form onSubmit={handleSubmit}>
 
-        <label htmlFor="jobName">Job: </label>
-        <input type="text" id="jobName" ref={jobNameRef} defaultValue={job.jobName}/>
+        <label className='block text-center mx-auto underline text-lg mb-6'>Edit</label>
 
-        <label htmlFor="jobTitle">Title: </label>
-        <input type="text" id="jobTitle" ref={jobTitleRef} defaultValue={job.jobTitle}/>
 
-        <label htmlFor="pay">Pay (per year): </label>
-        <input type="number" id="pay" ref={payPerYearRef} defaultValue={job.payPerYear}/>
+        <div className="flex flex-col items-start lg:flex-row lg:items-center lg:gap-4 ml-4">
+            <div className="mb-4 lg:mb-0">
+                <label htmlFor="jobName" className="mr-2">Job: </label>
+                <input type="text" id="jobName" ref={jobNameRef} defaultValue={job.jobName} className="border  px-2 py-1"/>
+            </div>
+            <div>
+                <label htmlFor="jobTitle" className="mr-2">Title: </label>
+                <input type="text" id="jobTitle" ref={jobTitleRef} defaultValue={job.jobTitle} className="border  px-2 py-1"/>
+            </div>
+            <div>
+                <label htmlFor="pay" className="mr-2">Pay: </label>
+                <input type="number" id="pay" ref={payPerYearRef} defaultValue={job.payPerYear} className="border  px-2 py-1"/>
+            </div>
+        </div>
 
-        <label htmlFor="jobDescription">Description: </label>
-        <input type="text" id="jobDescription" ref={jobDescriptionRef} defaultValue={job.jobDescription}/>
 
-        <br />
-        <p>Adress:</p>
+        <label htmlFor="jobDescription" className='block text-center mx-auto pt-6 underline'>Description</label>
+        <div className="w-full max-w-screen-lg mx-auto pt-10">
+        <textarea id="jobDescription" ref={jobDescriptionRef} defaultValue={job.jobDescription} className="w-full max-w-screen-lg mx-auto p-2 border border-C7 h-32"></textarea>
+        </div>
 
-        <label htmlFor="address">Address: </label>
-        <input type="text" id="address" ref={jobLocationAddressRef} defaultValue={job.jobLocation.address}/>
 
-        <label htmlFor="city">City: </label>
-        <input type="text" id="city" ref={jobLocationCityRef} defaultValue={job.jobLocation.city}/>
+        <div className="flex flex-col items-start lg:flex-row lg:items-center lg:gap-4 mt-6 ml-4">
+            <div>
+                <label htmlFor="address" className="mr-2">Address: </label>
+                <input type="text" id="address" ref={jobLocationAddressRef} defaultValue={job.jobLocation.address} className="border  px-2 py-1"/>
+            </div>
+            <div>
+                <label htmlFor="city" className="mr-2">City: </label>
+                <input type="text" id="city" ref={jobLocationCityRef} defaultValue={job.jobLocation.city} className="border  px-2 py-1"/>
+            </div>
+            <div>
+                <label htmlFor="state" className="mr-2">State: </label>
+                <input type="text" id="state" ref={jobLocationStateRef} defaultValue={job.jobLocation.state} className="border  px-2 py-1"/>
+            </div>
+            <div>
+                <label htmlFor="zip" className="mr-2">Area Code: </label>
+                <input type="number" id="zip" ref={jobLocationZipRef} defaultValue={job.jobLocation.zip} className="border  px-2 py-1"/>
+            </div>
+        </div>
 
-        <label htmlFor="state">State: </label>
-        <input type="text" id="state" ref={jobLocationStateRef} defaultValue={job.jobLocation.state}/>
 
-        <label htmlFor="zip">Area Code: </label>
-        <input type="number" id="zip" ref={jobLocationZipRef} defaultValue={job.jobLocation.zip}/>
+        <div className="flex flex-col items-start justify-between md:items-center 2xl:flex-row 2xl:gap-4 2xl:px-20 mt-10">
+            <div className="mb-4 lg:mb-0 flex flex-col items-start 2xl:items-center">
+                <div className='mb-4 underline links-container text-center'>
+                    Links
+                </div>
+                <div className="mb-4 text-center">
+                    <label htmlFor="site" className="mr-2">Company: </label>
+                    <input type="text" id="site" ref={companySiteLinkRef} defaultValue={job.companySiteLink} className="border  px-2 py-1"/>
+                </div>
+                <div className="mb-4 text-center">
+                    <label htmlFor="applicationSite" className="mr-2">Application Portal: </label>
+                    <input type="text" id="applicationSite" ref={companyApplicationSiteLinkRef} defaultValue={job.companyApplicationSiteLink} className="border  px-2 py-1"/>
+                </div>
+                <div className="mb-4 text-center">
+                    <label htmlFor="platform" className="mr-2">Application Platform: </label>
+                    <input type="text" id="platform" ref={recruitingPlatformRef} defaultValue={job.recruitingPlatform} className="border  px-2 py-1"/>
+                </div>
+            </div>
+            <div className="mb-4 lg:mb-0 flex flex-col items-start 2xl:items-center">
+                <div className='mb-4 underline links-container text-center'>
+                    Company
+                </div>
+                <div className="mb-4 text-center">
+                    <label htmlFor="companyName" className="mr-2">Name: </label>
+                    <input type="text" id="companyName" ref={companyNameRef} defaultValue={job.contactInfoCompany.name} className="border  px-2 py-1"/>
+                </div>
+                <div className="mb-4 text-center">
+                    <label htmlFor="companyEmail" className="mr-2">Email: </label>
+                    <input type="text" id="companyEmail" ref={companyEmailRef} defaultValue={job.contactInfoCompany.email} className="border  px-2 py-1"/>
+                </div>
+                <div className="mb-4 text-center">
+                    <label htmlFor="companyPhone" className="mr-2">Phone: </label>
+                    <input type="number" id="companyPhone" ref={companyPhoneRef} defaultValue={job.contactInfoCompany.phone} className="border  px-2 py-1"/>
+                </div>
+            </div>
+            <div className="mb-4 lg:mb-0 flex flex-col items-start 2xl:items-center">
+                <div className='mb-4 underline links-container text-center'>
+                    Manager
+                </div>
+                <div className="mb-4 text-center">
+                    <label htmlFor="managerName" className="mr-2">Name: </label>
+                    <input type="text" id="managerName" ref={managerNameRef} defaultValue={job.contactInfoHiringManager.name} className="border  px-2 py-1"/>
+                </div>
+                <div className="mb-4 text-center">
+                    <label htmlFor="managerEmail" className="mr-2">Email: </label>
+                    <input type="text" id="managerEmail" ref={managerEmailRef} defaultValue={job.contactInfoHiringManager.email} className="border  px-2 py-1"/>
+                </div>
+                <div className="mb-4 text-center">
+                    <label htmlFor="managerPhone" className="mr-2">Phone: </label>
+                    <input type="number" id="managerPhone" ref={managerPhoneRef} defaultValue={job.contactInfoHiringManager.phone} className="border  px-2 py-1"/>
+                </div>
+            </div>
+        </div>
 
-        <br />
-        <p>Links:</p>
 
-        <label htmlFor="site">Company: </label>
-        <input type="text" id="site" ref={companySiteLinkRef} defaultValue={job.companySiteLink}/>
-
-        <label htmlFor="applicationSite">Application Portal: </label>
-        <input type="text" id="applicationSite" ref={companyApplicationSiteLinkRef} defaultValue={job.companyApplicationSiteLink}/>
-
-        <label htmlFor="platform">Application Platform: </label>
-        <input type="text" id="platform" ref={recruitingPlatformRef} defaultValue={job.recruitingPlatform}/>
-
-        <br />
-        <p>Company Info:</p>
-
-        <label htmlFor="companyName">Name: </label>
-        <input type="text" id="companyName" ref={companyNameRef} defaultValue={job.contactInfoCompany.name}/>
-
-        <label htmlFor="companyEmail">Email: </label>
-        <input type="text" id="companyEmail" ref={companyEmailRef} defaultValue={job.contactInfoCompany.email}/>
-
-        <label htmlFor="companyPhone">Phone: </label>
-        <input type="number" id="companyPhone" ref={companyPhoneRef} defaultValue={job.contactInfoCompany.phone}/>
-
-        <br />
-        <p>Hiring Manager Info:</p>
-
-        <label htmlFor="managerName">Name: </label>
-        <input type="text" id="managerName" ref={managerNameRef} defaultValue={job.contactInfoHiringManager.name}/>
-
-        <label htmlFor="managerEmail">Email: </label>
-        <input type="text" id="managerEmail" ref={managerEmailRef} defaultValue={job.contactInfoHiringManager.email}/>
-
-        <label htmlFor="managerPhone">Phone: </label>
-        <input type="number" id="managerPhone" ref={managerPhoneRef} defaultValue={job.contactInfoHiringManager.phone}/>
-
-        <br/>
-        <br/>
-
-        <label htmlFor="status">Status:</label>
-        <select id="status" value={status} onChange={(e) => setStatus(e.target.value)}>
-          <option value="Pending">Pending</option>
-          <option value="Interviewing">Interviewing</option>
-          <option value="Offered">Offered</option>
-          <option value="Accepted">Accepted</option>
-          <option value="Rejected">Rejected</option>
-          <option value="Stalled">Stalled</option>
-        </select>
-
-        <br/>
-        <br/>
-        <button>Update</button>
-
+        <div className="mb-4 text-center">
+            <label htmlFor="status" className='mr-2'>Status:</label>
+            <select id="status" value={status} onChange={(e) => setStatus(e.target.value)}>
+            <option value="Pending">Pending</option>
+            <option value="Interviewing">Interviewing</option>
+            <option value="Offered">Offered</option>
+            <option value="Accepted">Accepted</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Stalled">Stalled</option>
+            </select>
+        </div>
+        <div className="mb-4 text-center">
+            <button className="bg-C3 text-white p-2 mx-4 rounded text-sm hover:bg-C8 border mt-2">Update</button>
+        </div>
         </form>
             </>
     )

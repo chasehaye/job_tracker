@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
 import { getTechListForJob } from '../../../utilities/technologies-api';
 import { Link } from "react-router-dom";
+import EditStatus from '../JobList/JobItem/EditStatus';
+import EditJobItemForm from './EditJobItemForm';
 
 export default function JobItemDetail({job, handleDelete, setJob}){
     const [editFormIsOpen, setEditFormIsOpen] = useState(false);
     const [technologies, setTechnologies] = useState([]);
+    const [showEditStatus, setShowEditStatus] = useState(false);
 
-
+    const editStatus = () => {
+        setShowEditStatus((prev) => !prev);
+    };
 
     useEffect(() => {
         const fetchTechnologies = async () => {
@@ -99,9 +104,15 @@ export default function JobItemDetail({job, handleDelete, setJob}){
                 </div>
                 )}
                 <div className='flex flex-col items-center'> 
-                    {job.status} 
+                    <div onClick={editStatus} className="cursor-pointer hover:text-C3">
+                                {showEditStatus ? "close" : job.status}
+                    </div>
+                    {showEditStatus && (
+                                <div>
+                                    <EditStatus job={job} />
+                                </div>
+                    )}
                     {renderFavoriteStatus()}
-
                 </div>
                 <div className='flex flex-col items-center'>
                     <button onClick={toggleEditForm} className='hover:text-C3'>

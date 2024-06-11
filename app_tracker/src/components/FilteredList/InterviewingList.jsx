@@ -22,12 +22,10 @@ const InterviewingList = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Interviewing Jobs</h2>
-            <p>////////////////////</p>
+        <div className='m-4'>
+            <h2 className='font-bold'>Interviewing Jobs</h2>
             <JobList jobs={interviewingJobs}>
             </JobList>
-            <p>///////////////////</p>
         </div>
     );
 };

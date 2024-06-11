@@ -22,12 +22,10 @@ const RecentlyAddedList = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Recently added Jobs</h2>
-            <p>+++++++++++++</p>
+        <div className='m-4'>
+            <h2 className='font-bold'>Recently Added Or Modified Jobs</h2>
             <JobList jobs={recentJobs}>
             </JobList>
-            <p>++++++++++++</p>
         </div>
     );
 };

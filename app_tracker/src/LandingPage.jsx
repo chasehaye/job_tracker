@@ -1,45 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 import InterviewingList from './components/FilteredList/InterviewingList';
 import OldestModdedList from './components/FilteredList/OldestModdedList';
 import RecentlyAddedList from './components/FilteredList/RecentlyAddedList';
+import FavoriteList from './components/FilteredList/FavotiteList';
 
 export default function LandingPage({user}){
 
 
     return(
         <>
-            <div>
-                Landing Page
+            <div className='flex flex-col items-center font-bold mt-4'>
+                Home
             </div>
             <div>
-                <p>===============</p>
-                <div>
-                <Link to="/profile"><span>{user.name}</span></Link>
-                </div>
-                <p>===============</p>
-            </div>
-            <div>
+                <FavoriteList />
                 <InterviewingList />
-                <OldestModdedList />
                 <RecentlyAddedList />
+                <OldestModdedList />
 
 
 
 
             </div>
-            <div>
-                personal user tech stack
-            </div>
-            <div>
-                best job fits based on personal best tech
-            </div>
-            <div>
-                archive of rejected // stalled
-            </div>
-            <div>
-                favorites and favorite list
-            </div>
+
             
         </>
     )

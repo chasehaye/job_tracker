@@ -22,12 +22,10 @@ const OldestModdedList = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Oldest Jobs</h2>
-            <p>------------</p>
+        <div className='m-4'>
+            <h2 className='font-bold'>Oldest Jobs</h2>
             <JobList jobs={oldestJobs}>
             </JobList>
-            <p>------------</p>
         </div>
     );
 };

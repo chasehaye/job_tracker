@@ -28,17 +28,23 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div>
-      <div className="form-container">
+    <>
+      <div >
         <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+          <div className='flex flex-col max-w-60 m-auto'>
+            <label className='text-center'>Email</label>
+            <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+
+            <label className='text-center'>Password</label>
+            <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+
+            <div className="mx-auto pt-4">
+              <button className="bg-C3 text-white py-1 px-4 rounded text-sm hover:bg-C8 mt-2 h-10 font-bold">Login</button>
+            </div>
+          </div>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
-    </div>
+    </>
   );
 }

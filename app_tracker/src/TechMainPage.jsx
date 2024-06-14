@@ -2,12 +2,12 @@ import React from 'react'
 import TechListPage from './components/TechPageSection/TechListPage'
 import AddTechPage from './AddTechPage'
 
-const TechPage = () => {
+const TechPage = ({user}) => {
   return (
     <>
 
 
-    <AddTechPage />
+    <AddTechPage user={user}/>
     <TechListPage />
 
     </>

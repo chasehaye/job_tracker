@@ -7,7 +7,10 @@ const technologySchema = new Schema({
         type: Boolean,
         required: true,
         default: false
-    }
+    },
+    user: { type: Schema.Types.ObjectId, ref: 'User' }
+}, {
+    timestamps: true
 });
 
 const Technology = mongoose.model('Technology', technologySchema);

@@ -11,7 +11,8 @@ module.exports = {
 
 async function index(req, res){
     try{
-        const technologies = await Technology.find();
+        const userId = req.user._id;
+        const technologies = await Technology.find({ user: userId});
         res.status(200).json(technologies);
     }catch(err){
         res.status(400).json(err);
@@ -22,6 +23,7 @@ async function create(req, res){
     try{
         req.body.uploaded_by = req.user._id;
         const newTechnology = await Technology.create(req.body);
+        console.log(newTechnology)
         res.status(200).json(newTechnology);
     }catch(err){
         res.status(400).json(err);

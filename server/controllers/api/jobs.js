@@ -11,7 +11,8 @@ module.exports = {
 
 async function index(req, res){
   try{
-    const jobs = await Job.find();
+    const userId = req.user._id;
+    const jobs = await Job.find({ user: userId });
     res.status(200).json(jobs);
   }catch(err){
     res.status(400).json(err);
@@ -59,8 +60,9 @@ async function update(req, res){
 
 async function filteredList(req, res) {
   try {
-      const { category, value, order } = req.params;
-      const filter = {};
+      const userId = req.user._id;
+      const { category, value, order, } = req.params;
+      const filter = { user: userId };
       let orderValue = null;
       // order parameter conversion
       if (order == 'descending'){
@@ -71,7 +73,7 @@ async function filteredList(req, res) {
       }
 
       if ( category == 'null' && value =='null'){
-        const jobs = await Job.find().sort({updatedAt: orderValue}).limit(3);
+        const jobs = await Job.find( { user: userId} ).sort({updatedAt: orderValue}).limit(3);
         res.status(200).json(jobs);
       } else {
         if (category && value) {

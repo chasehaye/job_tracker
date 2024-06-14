@@ -2,7 +2,7 @@ import { useRef, useState} from 'react';
 import { createNewTech } from '../../../utilities/technologies-api';
 import { useNavigate } from 'react-router-dom';
 
-const NewTechForm = () => {
+const NewTechForm = ({user}) => {
     const navigate = useNavigate();
 
     const techNameRef = useRef('');
@@ -16,6 +16,7 @@ const NewTechForm = () => {
         const newTech = {
             name: techNameRef.current.value,
             favorite: techFavoriteRef.current.checked,
+            user: user._id
         }
         try {
             const newTechResponse = await createNewTech(newTech);

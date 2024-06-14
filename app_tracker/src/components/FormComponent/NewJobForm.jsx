@@ -101,6 +101,8 @@ const NewJobForm = ({user}) => {
 
   return (
     <>
+
+    Modify this form for small screens
     <form onSubmit={handleSubmit} className=''>
         <label className='block text-center mx-auto underline text-lg mb-6'>Add Job</label>
 
@@ -163,7 +165,7 @@ const NewJobForm = ({user}) => {
         </div>
         
 
-        <div className="flex flex-col items-start justify-between md:items-center 2xl:flex-row 2xl:gap-4 2xl:px-20 mt-10">
+        <div className="flex flex-col items-start justify-between md:items-center 2xl:flex-row 2xl:gap-4 2xl:px-20 mt-10 ml-4">
             <div className="mb-4 lg:mb-0 flex flex-col items-start 2xl:items-center">
                 <div className='mb-4 underline links-container text-center'>
                     Links

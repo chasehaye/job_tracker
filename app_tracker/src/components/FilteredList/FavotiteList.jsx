@@ -20,6 +20,10 @@ const FavoriteList = () => {
         fetchFavoriteJobs();
     } ,[]);
 
+    if (favoriteJobs.length === 0) {
+        return null;
+    }
+
     return (
         <div className='m-4'>
             <h2 className='font-bold'>Favorite Jobs</h2>

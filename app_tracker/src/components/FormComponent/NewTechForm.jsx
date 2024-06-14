@@ -19,7 +19,7 @@ const NewTechForm = () => {
         }
         try {
             const newTechResponse = await createNewTech(newTech);
-            navigate('/');
+            navigate(`/tech/${newTechResponse._id}`);
         }catch(err){
             setError(err);
         }

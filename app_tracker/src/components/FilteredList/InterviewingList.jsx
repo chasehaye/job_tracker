@@ -21,6 +21,10 @@ const InterviewingList = () => {
         fetchInterviewingJobs();
     }, []);
 
+    if (interviewingJobs.length === 0) {
+        return null;
+    }
+
     return (
         <div className='m-4'>
             <h2 className='font-bold'>Interviewing Jobs</h2>

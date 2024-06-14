@@ -23,11 +23,15 @@ export default function EditTechItemForm({tech, setTech, setEditFormIsOpen}){
         <>
         { error && <p>{JSON.stringify(error)}</p>}
         <form onSubmit={handleSubmit}>
-
-        <label htmlFor="techName">Tech: </label>
-        <input type="text" id="techName" ref={techNameRef} defaultValue={tech.name}/>
-
-        <button>Update</button>
+            <div className="flex flex-col ">
+                <div className="text-center">
+                    <label htmlFor="techName" className="mr-2 my-2">Tech Name: </label>
+                    <input type="text" id="techName" ref={techNameRef} defaultValue={tech.name} className="my-2"/>
+                </div>
+                <div className="text-center">
+                    <button className="bg-C3 text-white p-2 mx-4 rounded text-sm hover:bg-C8 border mt-2">Update</button>
+                </div>
+            </div>
         </form>
         </>
     )

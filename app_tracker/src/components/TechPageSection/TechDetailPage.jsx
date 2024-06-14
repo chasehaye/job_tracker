@@ -35,7 +35,7 @@ export default function TechDetailPage(){
     async function handleDelete(e){
         const deleteResponse = await deleteTechRequest(tech._id);
         if(deleteResponse.data === 'success'){
-            navigate('/')
+            navigate('/tech')
         }
     }
 

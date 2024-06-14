@@ -17,8 +17,8 @@ export default function JobListPage(){
     <>
     <main className="mt-6 text-center">
       add filter functionality //
-      pagify and add appropriate route // 
-      make it render if user is matching
+      pagify and add appropriate route //
+      filters?
       <JobList jobs={jobs}>
       </JobList>
     </main>

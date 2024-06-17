@@ -101,23 +101,21 @@ const NewJobForm = ({user}) => {
 
   return (
     <>
-
-    Modify this form for small screens
     <form onSubmit={handleSubmit} className=''>
         <label className='block text-center mx-auto underline text-lg mb-6'>Add Job</label>
 
 
 
         <div className="flex flex-col items-start lg:flex-row lg:items-center lg:gap-4 ml-4">
-            <div className="mb-4 lg:mb-0">
+            <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                 <label htmlFor="jobName" className="mr-2">Job:</label>
                 <input type="text" id="jobName" ref={jobNameRef} className="border  px-2 py-1" />
             </div>
-            <div className="mb-4 lg:mb-0">
+            <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                 <label htmlFor="jobTitle" className="mr-2">Title:</label>
                 <input type="text" id="jobTitle" ref={jobTitleRef} className="border px-2 py-1" />
             </div>
-            <div className="mb-4 lg:mb-0">
+            <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                 <label htmlFor="pay" className="mr-2">Pay:</label>
                 <input type="number" id="pay" ref={payPerYearRef} className="border  px-2 py-1" />
             </div>
@@ -146,19 +144,19 @@ const NewJobForm = ({user}) => {
 
 
         <div className="flex flex-col items-start lg:flex-row lg:items-center lg:gap-4 mt-6 ml-4">
-            <div className="mb-4">
+            <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                 <label htmlFor="address" className="mr-2">Address: </label>
                 <input type="text" id="address" ref={jobLocationAddressRef} className="border  px-2 py-1" />
             </div>
-            <div className="mb-4">
+            <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                 <label htmlFor="city" className="mr-2">City: </label>
                 <input type="text" id="city" ref={jobLocationCityRef} className="border  px-2 py-1" />
             </div>
-            <div className="mb-4">
+            <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                 <label htmlFor="state" className="mr-2">State: </label>
                 <input type="text" id="state" ref={jobLocationStateRef} className="border  px-2 py-1" />
             </div>
-            <div className="mb-4">
+            <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                 <label htmlFor="zip" className="mr-2">Zip Code: </label>
                 <input type="number" id="zip" ref={jobLocationZipRef} className="border  px-2 py-1" />
             </div>
@@ -170,15 +168,15 @@ const NewJobForm = ({user}) => {
                 <div className='mb-4 underline links-container text-center'>
                     Links
                 </div>
-                <div className="mb-4 links-container text-center">
+                <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                     <label htmlFor="site" className="mr-2">Company:</label>
                     <input type="text" id="site" ref={companySiteLinkRef} className="border  px-2 py-1"/>
                 </div>
-                <div className="mb-4 links-container text-center">
+                <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                     <label htmlFor="applicationSite" className="mr-2">Application:</label>
                     <input type="text" id="applicationSite" ref={companyApplicationSiteLinkRef} className="border  px-2 py-1"/>
                 </div>
-                <div className="mb-4 links-container text-center">
+                <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                     <label htmlFor="platform" className="mr-2">Platform:</label>
                     <input type="text" id="platform" ref={recruitingPlatformRef} className="border  px-2 py-1"/>
                 </div>
@@ -187,15 +185,15 @@ const NewJobForm = ({user}) => {
                 <div className='mb-4 underline links-container text-center'>
                     Company
                 </div>
-                <div className="mb-4 links-container text-center">
+                <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                     <label htmlFor="companyName" className="mr-2">Name:</label>
                     <input type="text" id="companyName" ref={companyNameRef} className="border  px-2 py-1"/>
                 </div>
-                <div className="mb-4 links-container text-center">
+                <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                     <label htmlFor="companyEmail" className="mr-2">Email:</label>
                     <input type="text" id="companyEmail" ref={companyEmailRef} className="border  px-2 py-1"/>
                 </div>
-                <div className="mb-4 links-container text-center">
+                <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                     <label htmlFor="companyPhone" className="mr-2">Phone:</label>
                     <input type="number" id="companyPhone" ref={companyPhoneRef} className="border  px-2 py-1"/>
                 </div>
@@ -204,15 +202,15 @@ const NewJobForm = ({user}) => {
                 <div className='mb-4 underline links-container text-center'>
                     Manager
                 </div>
-                <div className="mb-4 links-container text-center">
+                <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                     <label htmlFor="managerName" className="mr-2">Name:</label>
                     <input type="text" id="managerName" ref={managerNameRef} className="border  px-2 py-1"/>
                 </div>
-                <div className="mb-4 links-container text-center">
+                <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                     <label htmlFor="managerEmail" className="mr-2">Email:</label>
                     <input type="text" id="managerEmail" ref={managerEmailRef} className="border  px-2 py-1"/>
                 </div>
-                <div className="mb-4 links-container text-center">
+                <div className="mb-4 2xl:flex-row flex flex-col items-start 2xl:items-center">
                     <label htmlFor="managerPhone" className="mr-2">Phone:</label>
                     <input type="number" id="managerPhone" ref={managerPhoneRef} className="border  px-2 py-1"/>
                 </div>

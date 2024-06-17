@@ -40,9 +40,9 @@ export default function JobListPage() {
         {/* Filter functionality (add your implementation here) */}
         <JobList jobs={getVisibleJobs()} />
 
-        <div className="flex flex-row mx-auto mt-4">
+        <div className="flex flex-row mx-auto mt-4 w-full mb-6">
           <button
-            className="ml-auto dec cursor-pointer"
+            className="ml-auto dec cursor-pointer hover:text-C3"
             type="button"
             disabled={currentPage === 1}
             onClick={handleDecrement}
@@ -53,7 +53,7 @@ export default function JobListPage() {
             {currentPage}
           </div>
           <button
-            className="mr-auto inc cursor-pointer"
+            className="mr-auto inc cursor-pointer hover:text-C3"
             type="button"
             disabled={currentPage === Math.ceil(jobs.length / itemsPerPage)}
             onClick={handleIncrement}

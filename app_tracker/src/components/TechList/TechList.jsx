@@ -42,6 +42,13 @@ export default function TechList({technologies}){
     
     return (
     <>
+    <div className="block text-center mx-auto underline text-lg mb-6 mt-10">
+        {isFiltered ?
+        <span>List of Favorite Technologies</span>
+        :
+        <span>List of All Technologies</span>
+        }
+    </div>
     <div className="grid grid-cols-1 gap-1 overflow-auto md:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-7 mb-10">
         {isFiltered ?
         filteredTech

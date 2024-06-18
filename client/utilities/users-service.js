@@ -16,12 +16,15 @@ export function getToken() {
   const token = localStorage.getItem('token');
   if (!token) return null;
   // experation check
+  
   const payload = JSON.parse(atob(token.split('.')[1]));
+
   if (payload.exp < Date.now() / 1000) {
+    console.log('date checker')
     localStorage.removeItem('token');
     return null;
-  }
-  return token;
+   }
+   return token;
 }
 
 export function getUser() {

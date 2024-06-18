@@ -4,8 +4,7 @@
   "description": "A MERN stack application with React (Vite) frontend and Express backend",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix app_tracker && npm run build --prefix app_tracker && cp -r app_tracker/dist server/"
+    "start": "node server/server.js"
   },
   "engines": {
     "node": "21.x"

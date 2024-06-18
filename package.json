@@ -8,7 +8,7 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix app_tracker && npm run build --prefix app_tracker && cp -r app_tracker/dist server/"
   },
   "engines": {
-    "node": "21.7.3"
+    "node": "21.x"
   },
   "dependencies": {
     "express": "^4.19.2",

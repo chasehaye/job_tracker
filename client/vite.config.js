@@ -12,4 +12,7 @@ export default defineConfig({
     react(),
     tailwindcss('./tailwind.config.js'),
   ],
+  build: {
+    outDir: 'dist',
+  }
 });

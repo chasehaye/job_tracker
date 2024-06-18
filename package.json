@@ -1,0 +1,21 @@
+{
+  "name": "tracker",
+  "version": "1.0.0",
+  "description": "A MERN stack application with React (Vite) frontend and Express backend",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix app_tracker && npm run build --prefix app_tracker && cp -r app_tracker/dist server/"
+  },
+  "engines": {
+    "node": "21.7.3"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "license": "ISC",
+  "author": "Chase H"
+  
+}
